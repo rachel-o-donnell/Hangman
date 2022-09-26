@@ -9,20 +9,24 @@ def choose_valid_word(words):
     Eliminates words that are less than 6 characters long, have spaces or have hyphens
     Randomly chooses a word for our game.
     """
-    available_letters = string.ascii_uppercase
     word_in_play = random.choice(words)
     while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) < 6:
          word_in_play = random.choice(words)
-    print (f"These are the available letters: {available_letters}")
-    input("Choose a letter\n")
+
+def start_game():
+    print("Welcome to Hangman, you have 7 tries to guess the correct letters or you will be hanged\n")
+    print (f"These are the available letters: {available_letters}\n")
+    input("Choose a letter ")
     
-    print(word_in_play)
+    return(word_in_play)
 
 
-letters_in_word_in_play = ''
-used_letters = ''
+
+available_letters = sorted(set(string.ascii_uppercase))
+used_letters = set()
 lives = 7 
 guessing_area = ''
 
-choose_valid_word(words)
-
+start_game()
+word = choose_valid_word(words)
+identify_letter()
