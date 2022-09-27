@@ -34,3 +34,7 @@ bug 1:
 program was printing/returning multiple words (the ones that had 4 letters etc and Then the last one.) Properly indented te print statement to fix. 
 
 bug 2 : variables needed to be changed to global to access and word in play needed to be changed to capitals to recognise a correct ans
+
+
+bug 3: After guessing a letter you could add in a number or symbol and get the message that you already used that letter instead of knowing it was not a letter. 
+I added a condition to make sure it was alpha and that it was not in available letters
