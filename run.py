@@ -30,26 +30,30 @@ def start_game():
     is in the available letters list,
     and whether it is a correct or incorrect guess
     """ 
-
-    global chosen_letter
-    chosen_letter = input("Choose a letter: ").upper()
-    if chosen_letter.isalpha() and chosen_letter in available_letters:
-        available_letters.remove(chosen_letter)
-        print(available_letters)
-        if chosen_letter in word_in_play:
-            print(f"You guessed correctly with the letter {chosen_letter}")
-        elif chosen_letter not in word_in_play:
-            print(f"Oh no! You have lost this guess with the letter {chosen_letter}")  
-    else: 
-        print("Invalid answer, you must choose a letter\n")
-    return chosen_letter
-   
+    tries = 7
+    while tries > 0:
+        global chosen_letter
+        chosen_letter = input("Choose a letter: ").upper()
+        if chosen_letter.isalpha() and chosen_letter in available_letters:
+            available_letters.remove(chosen_letter)
+            if chosen_letter in word_in_play:
+                print(f"You guessed correctly with the letter {chosen_letter}")
+                
+            elif chosen_letter not in word_in_play:
+                tries = tries -1
+                print(f"Oh no! You have lost this guess with the letter {chosen_letter}\n") 
+                print(f"you have {tries} remaining")
+                   
+        else: 
+            print("Invalid answer, you must choose a letter\n")
         
+   
+       
     
 
 available_letters = sorted(set(string.ascii_uppercase))
 used_letters = set()
-lives = 7 
+
 guessing_area = ''
 
 welcome()
