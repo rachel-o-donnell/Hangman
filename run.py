@@ -18,13 +18,19 @@ def choose_valid_word(words):
 def welcome():
     
     """
-    Prints opening message to the terminal, asks player to input a letter,
-    checks that the answer is a letter and returns this chosen letter
+    Prints opening message to the terminal
     """
     print("Welcome to Hangman, you have 7 tries to guess the correct letters or you will be hanged\n")
     print (f"These are the available letters:\n {available_letters}\n")
 
 def start_game():
+    """
+    asks player to input a letter,
+    checks that the answer is a valid guess buy ensuring it is a letter,
+    is in the available letters list,
+    and whether it is a correct or incorrect guess
+    """ 
+
     global chosen_letter
     chosen_letter = input("Choose a letter: ").upper()
     if chosen_letter.isalpha() and chosen_letter in available_letters:
