@@ -37,14 +37,16 @@ def start_game():
         if chosen_letter.isalpha() and chosen_letter in available_letters:
             available_letters.remove(chosen_letter)
             if chosen_letter in word_in_play:
-                print(f"You guessed correctly with the letter {chosen_letter}")
-                
+                print(f"You guessed correctly with the letter {chosen_letter}\n")
+                print(f"The remaining letters are: {available_letters}")
             elif chosen_letter not in word_in_play:
                 tries = tries -1
                 print(f"Oh no! You have lost this guess with the letter {chosen_letter}\n") 
                 print(f"you have {tries} remaining")
-                   
-        else: 
+                print(f"The remaining letters are: {available_letters}")   
+        elif chosen_letter.isalpha() and chosen_letter not in available_letters:
+            print(f"You have already used {chosen_letter}") 
+        else:    
             print("Invalid answer, you must choose a letter\n")
         
    
