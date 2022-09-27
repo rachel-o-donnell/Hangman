@@ -29,3 +29,6 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+bug 1:
+program was printing/returning multiple words (the ones that had 4 letters etc and Then the last one.) Properly indented te print statement to fix. 

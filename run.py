@@ -12,7 +12,7 @@ def choose_valid_word(words):
     word_in_play = random.choice(words)
     while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) < 6:
          word_in_play = random.choice(words)
-         return(word_in_play)
+    print(word_in_play)     
 
 def start_game():
     """
@@ -37,7 +37,4 @@ guessing_area = ''
 
 
 start_game()
-
-
-word = choose_valid_word(words)
-
+choose_valid_word(words)
