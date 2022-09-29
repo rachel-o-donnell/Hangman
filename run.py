@@ -11,7 +11,6 @@ def choose_valid_word():
     Eliminates words that are less than 6 characters long, have spaces or have hyphens
     Randomly chooses a word for our game.
     """
-    global word_in_play
     word_in_play = random.choice(words).upper()
     while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) < 6:
          word_in_play = random.choice(words).upper()
