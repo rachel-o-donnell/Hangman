@@ -38,18 +38,19 @@ def start_game(word):
     used_letters = set()
     tries = 7
     while tries > 0:
-        word_area = '_' * len(word_in_play)
-        print(f"The word is {len(word_in_play)} letters long: \n {word_area}")
+        word_area = '_' * len(word)
+        print(f"The word is {len(word)} letters long: \n {word_area}")
         chosen_letter = input("Choose a letter: ").upper()
 
         if chosen_letter.isalpha() and chosen_letter in available_letters:
             available_letters.remove(chosen_letter)
-            if chosen_letter in word_in_play:
+            if chosen_letter in word:
                 print(f"You guessed correctly with the letter {chosen_letter}\n")
                 print(f"The remaining letters are: {available_letters}")
-                print(word_area)
-
-            elif chosen_letter not in word_in_play:
+            
+                
+                
+            elif chosen_letter not in word:
                 tries = tries -1
                 print(f"Oh no! You have lost this guess with the letter {chosen_letter}\n") 
                 print(f"you have {tries} remaining")
@@ -64,7 +65,6 @@ def start_game(word):
 
 
 welcome()
-
 start_game(choose_valid_word())
 
 
