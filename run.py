@@ -37,8 +37,9 @@ def start_game(word):
     """
     used_letters = set()
     tries = 7
+    guessed_word = False
     word_area = '_' * len(word)
-    while tries > 0:
+    while tries > 0 and not guessed_word:
         print(f"The word is {len(word)} letters long: \n {word_area}")
         chosen_letter = input("Choose a letter: ").upper()
         if chosen_letter.isalpha() and chosen_letter in available_letters:
@@ -52,7 +53,8 @@ def start_game(word):
                     print(word_area)
                 print(f"You guessed correctly with the letter {chosen_letter}\n")
                 print(f"The remaining letters are: {available_letters}")
-               
+                if '_' not in word_area:
+                    guessed_word = True
             elif chosen_letter not in word:
                 tries = tries - 1
                 print(f"Oh no! You have lost this guess with the letter {chosen_letter}\n")
@@ -63,6 +65,8 @@ def start_game(word):
             print(f"You have already used {chosen_letter}")
         else:
             print("Invalid answer, you must choose a letter\n")
+    if guessed_word:
+        print('You win!')
 
 
 welcome()
