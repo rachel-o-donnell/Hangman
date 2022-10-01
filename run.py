@@ -39,16 +39,18 @@ def start_game(word):
     is in the available letters list,
     and whether it is a correct or incorrect guess
     """
-    used_letters = set()
+    guessed_letters = set()
     tries = 7
     guessed_word = False
     word_area = '_' * len(word)
     print(game_display(tries))
     while tries > 0 and not guessed_word:
         print(f"The word is {len(word)} letters long: \n {word_area}")
+        print('Your guessed letters: ', ' '.join(sorted(guessed_letters)))
         chosen_letter = input("Choose a letter: ").upper()
         if chosen_letter.isalpha() and chosen_letter in available_letters:
             available_letters.remove(chosen_letter)
+            guessed_letters.add(chosen_letter)
             if chosen_letter in word:
                 word_area_list = list(word_area)
                 index_of_correct_letter = [i for i,
@@ -65,6 +67,8 @@ def start_game(word):
                     guessed_word = True
             elif chosen_letter not in word:
                 tries = tries - 1
+                guessed_letters.add(chosen_letter)
+                print(guessed_letters)
                 print(f"Oh no! You have lost this guess with the letter "
                       f"{chosen_letter}\n")
                 print(game_display(tries))
