@@ -25,7 +25,7 @@ def welcome():
     global available_letters
     available_letters = sorted(set(string.ascii_uppercase))
     welcome_msg = (
-        "Welcome to Hangman, you have 7 tries to guess"
+        "Welcome to Hangman, you have 7 tries to guess "
         "the correct letters or you will be hanged\n"
         )
     print(welcome_msg)
@@ -58,14 +58,14 @@ def start_game(word):
                     word_area_list[i] = chosen_letter
                     word_area = "".join(word_area_list)
                     print(word_area)
-                print(f"You guessed correctly with the letter"
+                print(f"You guessed correctly with the letter "
                       f"{chosen_letter}\n")
                 print(f"The remaining letters are: {available_letters}")
                 if '_' not in word_area:
                     guessed_word = True
             elif chosen_letter not in word:
                 tries = tries - 1
-                print(f"Oh no! You have lost this guess with the letter"
+                print(f"Oh no! You have lost this guess with the letter "
                       f"{chosen_letter}\n")
                 print(game_display(tries))
                 print(f"you have {tries} remaining")
