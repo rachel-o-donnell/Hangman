@@ -38,3 +38,6 @@ bug 2 : variables needed to be changed to global to access and word in play need
 
 bug 3: After guessing a letter you could add in a number or symbol and get the message that you already used that letter instead of knowing it was not a letter. 
 I added a condition to make sure it was alpha and that it was not in available letters
+
+bug that was fixed during a big clean up - my \ neaded to be \\ in order to not break the lines in graphics.
+
