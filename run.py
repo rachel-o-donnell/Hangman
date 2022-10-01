@@ -63,7 +63,7 @@ def start_game(word):
                 print(f"The remaining letters are: {available_letters}")
                 if '_' not in word_area:
                     guessed_word = True
-            elif chosen_letter not in word:
+            elif chosen_letter not in word and tries > 0:
                 tries = tries - 1
                 print(f"Oh no! You have lost this guess with the letter "
                       f"{chosen_letter}\n")
@@ -71,6 +71,8 @@ def start_game(word):
                 print(f"you have {tries} remaining")
                 print(f"The remaining letters are: {available_letters}")
                 print(word_area)
+                if tries == 0:
+                    print("Oh no! The man has been hanged.")
         elif chosen_letter.isalpha() and chosen_letter not in available_letters:
             print(f"You have already used {chosen_letter}")
         else:
