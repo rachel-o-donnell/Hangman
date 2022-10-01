@@ -24,7 +24,11 @@ def welcome():
     """
     global available_letters
     available_letters = sorted(set(string.ascii_uppercase))
-    print("Welcome to Hangman, you have 7 tries to guess the correct letters or you will be hanged\n")
+    welcome_msg = (
+        "Welcome to Hangman, you have 7 tries to guess"
+        "the correct letters or you will be hanged\n"
+        )
+    print(welcome_msg)
     print(f"These are the available letters:\n {available_letters}\n")
 
 
@@ -47,18 +51,22 @@ def start_game(word):
             available_letters.remove(chosen_letter)
             if chosen_letter in word:
                 word_area_list = list(word_area)
-                index_of_correct_letter = [i for i, letter in enumerate(word) if letter == chosen_letter]
+                index_of_correct_letter = [i for i,
+                                           letter in enumerate(word)
+                                           if letter == chosen_letter]
                 for i in index_of_correct_letter:
                     word_area_list[i] = chosen_letter
                     word_area = "".join(word_area_list)
                     print(word_area)
-                print(f"You guessed correctly with the letter {chosen_letter}\n")
+                print(f"You guessed correctly with the letter"
+                      f"{chosen_letter}\n")
                 print(f"The remaining letters are: {available_letters}")
                 if '_' not in word_area:
                     guessed_word = True
             elif chosen_letter not in word:
                 tries = tries - 1
-                print(f"Oh no! You have lost this guess with the letter {chosen_letter}\n")
+                print(f"Oh no! You have lost this guess with the letter"
+                      f"{chosen_letter}\n")
                 print(game_display(tries))
                 print(f"you have {tries} remaining")
                 print(f"The remaining letters are: {available_letters}")
@@ -75,7 +83,7 @@ def game_display(tries):
     """
     displays the visuals of the game to the player
     """
-    hangman_stage = [f"""
+    hangman_stage = ["""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -84,30 +92,30 @@ def game_display(tries):
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
                         |             %",     @@|@@     ,"%
-                        |                \      |      /
-                        |                 \     |     /
-                        |                  \____|____/
-                        |                       | 
+                        |               \\      |      /
+                        |                \\     |     /
+                        |                 \\____|____/
+                        |                       |
                         |                       |
                         |                       |
                         |                     __|__
-                        |                    /     \ 
-                        |                   /       \
-                        |                  /         \
+                        |                    /     \\
+                        |                   /       \\
+                        |                  /         \\
                         |                 |          |
-                        |                  \         /
-                        |                   \       /
-                        |                    \     /
-                        |                 %=/       \=%
-                        |                      
-                        |                   
+                        |                 \\         /
+                        |                  \\       /
+                        |                   \\     /
+                        |                 %=/      \\=%
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
                        |                                   | /
                        |___________________________________|/
                        """,
-                       """
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -116,23 +124,23 @@ def game_display(tries):
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
                         |             %",     @@|@@     ,"%
-                        |                \      |      /
-                        |                 \     |     /
-                        |                  \____|____/
-                        |                       | 
+                        |               \\      |      /
+                        |                \\     |     /
+                        |                 \\____|____/
                         |                       |
                         |                       |
-                        |                       |__
-                        |                          \ 
-                        |                           \
-                        |                            \
-                        |                            |
-                        |                            /
-                        |                           /
-                        |                          /
-                        |                           \=%
-                        |                      
-                        |                   
+                        |                       |
+                        |                     __|__
+                        |                    /
+                        |                   /
+                        |                  /
+                        |                 |
+                        |                 \\
+                        |                  \\
+                        |                   \\
+                        |                 %=/
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
@@ -140,7 +148,7 @@ def game_display(tries):
                        |___________________________________|/
                        """,
 
-                       f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -149,14 +157,13 @@ def game_display(tries):
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
                         |             %",     @@|@@     ,"%
-                        |                \      |      /
-                        |                 \     |     /
-                        |                  \____|____/
-                        |                       | 
+                        |               \\      |      /
+                        |                \\     |     /
+                        |                 \\____|____/
                         |                       |
                         |                       |
                         |                       |
-                        | 
+                        |                       |
                         |
                         |
                         |
@@ -165,9 +172,10 @@ def game_display(tries):
                         |
                         |
                         |
-                        |                  
-                        |                      
-                        |                   
+                        |
+                        |
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
@@ -175,7 +183,7 @@ def game_display(tries):
                        |___________________________________|/
                        """,
 
-                       f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -184,9 +192,9 @@ def game_display(tries):
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
                         |             %",     @@|@@     ,"%
-                        |                \      |      /
-                        |                 \     |     /
-                        |                  \____|____/
+                        |               \\      |      /
+                        |                \\     |     /
+                        |                 \\____|____/
                         |
                         |
                         |
@@ -199,10 +207,10 @@ def game_display(tries):
                         |
                         |
                         |
-                        |                       
-                        |                   
-                        |                      
-                        |                   
+                        |
+                        |
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
@@ -210,7 +218,7 @@ def game_display(tries):
                        |___________________________________|/
                        """,
 
-                       f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -218,11 +226,10 @@ def game_display(tries):
                         |/                   @@@@@@@@___
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
-                        |             %",     @@|@@     
-                        |                \      |    
-                        |                 \     |    
-                        |                  \____|
-                        |                    
+                        |             %",     @@|@@
+                        |               \\      |
+                        |                \\     |
+                        |                 \\____|
                         |
                         |
                         |
@@ -235,8 +242,9 @@ def game_display(tries):
                         |
                         |
                         |
-                        |                      
-                        |                   
+                        |
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
@@ -244,7 +252,7 @@ def game_display(tries):
                        |___________________________________|/
                        """,
 
-                       f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -252,9 +260,9 @@ def game_display(tries):
                         |/                   @@@@@@@@___
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
-                        |                     @@|@@     
-                        |                       |      
-                        |                       |     
+                        |                     @@|@@
+                        |                       |
+                        |                       |
                         |                       |
                         |
                         |
@@ -269,8 +277,8 @@ def game_display(tries):
                         |
                         |
                         |
-                        |                      
-                        |                   
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
@@ -278,7 +286,7 @@ def game_display(tries):
                        |___________________________________|/
                        """,
 
-                       f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -286,24 +294,24 @@ def game_display(tries):
                         |/                   @@@@@@@@___
                         |                  @| x  x |@@@~~
                         |                  @|__~___|@~~~
-                        |                     @@|@@ 
-                        |                
-                        |               
-                        |               
-                        |               
-                        |                      
-                        |                    
-                        |                  
-                        |                
-                        |                  
-                        |                  
-                        |                
-                        |                 
-                        |                 
-                        |              
-                        |          
-                        |                      
-                        |                   
+                        |                     @@|@@
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
@@ -311,39 +319,38 @@ def game_display(tries):
                        |___________________________________|/
                        """,
 
-                      f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
-                        | /                  
-                        |/              
-                        |              
-                        |                 
-                        |                  
-                        |                
-                        |               
-                        |               
-                        |               
-                        |                      
-                        |                    
-                        |                  
-                        |                
-                        |                  
-                        |                  
-                        |                
-                        |                 
-                        |                 
-                        |              
-                        |          
-                        |                      
-                        |                   
+                        | /
+                        |/
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
                        |                                   | /
                        |___________________________________|/
-                       """,
-                       ]
+                       """]
 
     return hangman_stage[tries]
 
