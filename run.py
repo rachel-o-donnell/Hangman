@@ -22,14 +22,11 @@ def welcome():
     """
     Prints opening message to the terminal
     """
-    global available_letters
-    available_letters = sorted(set(string.ascii_uppercase))
     welcome_msg = (
         "Welcome to Hangman, you have 7 tries to guess "
         "the correct letters or you will be hanged\n"
         )
     print(welcome_msg)
-    print(f"These are the available letters:\n {available_letters}\n")
 
 
 def start_game(word):
@@ -44,6 +41,8 @@ def start_game(word):
     guessed_word = False
     word_area = '_' * len(word)
     print(game_display(tries))
+    available_letters = sorted(set(string.ascii_uppercase))
+    print(f"These are the available letters:\n {available_letters}\n")
     while tries > 0 and not guessed_word:
         print(f"The word is {len(word)} letters long: \n {word_area}")
         print('Your guessed letters: ', ' '.join(sorted(guessed_letters)))
