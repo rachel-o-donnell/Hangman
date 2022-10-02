@@ -1,8 +1,8 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 import random
-from words import words
 import string
+from words import words
 
 
 def choose_valid_word():
@@ -47,8 +47,8 @@ def start_game(word):
         print(f"The word is {len(word)} letters long: \n\n {word_area}\n")
         if guessed_letters:
             print(f"The remaining letters are: {available_letters}\n")
-            print('Your guessed letters:', ' '.join(sorted(guessed_letters)))     
-        chosen_letter = input("\nChoose a letter: \n").upper()
+            print('Your guessed letters:', ' '.join(sorted(guessed_letters)))
+        chosen_letter = input("\nChoose a letter: ").upper()
         if chosen_letter.isalpha() and chosen_letter in available_letters:
             available_letters.remove(chosen_letter)
             guessed_letters.add(chosen_letter)
@@ -70,8 +70,6 @@ def start_game(word):
                 print(f"\nOh no! You have lost this guess with the letter "
                       f"{chosen_letter}\n")
                 print(f"You have {tries} remaining guesses \n")
-                #guessed_letters.add(chosen_letter)
-                #print(guessed_letters)
                 if tries == 0:
                     print("Oh no! The man has been hanged.")
         elif chosen_letter.isalpha() and chosen_letter not in available_letters:
