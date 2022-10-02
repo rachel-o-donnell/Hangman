@@ -58,15 +58,18 @@ def start_game(word):
                                            letter in enumerate(word)
                                            if letter == chosen_letter]
                 for i in index_of_correct_letter:
+                    print(game_display(tries))
                     word_area_list[i] = chosen_letter
                     word_area = "".join(word_area_list)
                     print(word_area)
                 print(f"\nYou guessed correctly with the letter "
                       f"{chosen_letter}\n")
+                
                 if '_' not in word_area:
                     guessed_word = True
             elif chosen_letter not in word:
                 tries = tries - 1
+                print(game_display(tries))
                 print(f"\nOh no! You have lost this guess with the letter "
                       f"{chosen_letter}\n")
                 print(f"You have {tries} remaining guesses \n")
