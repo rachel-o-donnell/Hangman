@@ -44,9 +44,11 @@ def start_game(word):
     available_letters = sorted(set(string.ascii_uppercase))
     print(f"These are the available letters:\n {available_letters}\n")
     while tries > 0 and not guessed_word:
-        print(f"The word is {len(word)} letters long: \n {word_area}")
-        print('Your guessed letters: ', ' '.join(sorted(guessed_letters)))
-        chosen_letter = input("Choose a letter: ").upper()
+        print(f"The word is {len(word)} letters long: \n\n {word_area}\n")
+        if guessed_letters:
+            print(f"The remaining letters are: {available_letters}\n")
+            print('Your guessed letters:', ' '.join(sorted(guessed_letters)))     
+        chosen_letter = input("\nChoose a letter: \n").upper()
         if chosen_letter.isalpha() and chosen_letter in available_letters:
             available_letters.remove(chosen_letter)
             guessed_letters.add(chosen_letter)
@@ -59,29 +61,27 @@ def start_game(word):
                     word_area_list[i] = chosen_letter
                     word_area = "".join(word_area_list)
                     print(word_area)
-                print(f"You guessed correctly with the letter "
+                print(f"\nYou guessed correctly with the letter "
                       f"{chosen_letter}\n")
-                print(f"The remaining letters are: {available_letters}")
                 if '_' not in word_area:
                     guessed_word = True
             elif chosen_letter not in word:
                 tries = tries - 1
-                guessed_letters.add(chosen_letter)
-                print(guessed_letters)
-                print(f"Oh no! You have lost this guess with the letter "
+                print(f"\nOh no! You have lost this guess with the letter "
                       f"{chosen_letter}\n")
-                print(game_display(tries))
-                print(f"you have {tries} remaining")
-                print(f"The remaining letters are: {available_letters}")
-                print(word_area)
+                print(f"You have {tries} remaining guesses \n")
+                #guessed_letters.add(chosen_letter)
+                #print(guessed_letters)
                 if tries == 0:
                     print("Oh no! The man has been hanged.")
         elif chosen_letter.isalpha() and chosen_letter not in available_letters:
-            print(f"You have already used {chosen_letter}")
+            print(f"You have already used {chosen_letter} \n")
+            print(f"The remaining letters are: {available_letters}\n")
         else:
-            print("Invalid answer, you must choose a letter\n")
+            print("\n Invalid answer, you must choose a letter\n")
+            print(f"The remaining letters are: {available_letters}\n")
     if guessed_word:
-        print('You win!')
+        print('\n You win!')
 
 
 def game_display(tries):
@@ -355,6 +355,8 @@ def game_display(tries):
                         /___________________________________/ |
                        |                                   | /
                        |___________________________________|/
+                       \n
+                       \n
                        """]
 
     return hangman_stage[tries]
