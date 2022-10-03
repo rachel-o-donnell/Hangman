@@ -25,8 +25,29 @@ def welcome():
     welcome_msg = (
         "Welcome to Hangman, you have 7 tries to guess "
         "the correct letters or you will be hanged\n"
-        )
+    )
     print(welcome_msg)
+
+
+def choose_level():
+    """
+    Asks player to choose a difficulty setting
+    """
+    chosen_level = ''
+    print("Choose your difficulty: \n")
+    level = input('Enter e for Easy, m for Medium or h for Hard ').upper()
+    if level == 'E':
+        chosen_level = "Easy"
+    elif level == 'M':
+        chosen_level = "Medium"
+    elif level == 'H':
+        chosen_level = "Hard"
+    else:
+        print(" \n Invalid input, "
+              "you must enter e for Easy, m for Medium or h for Hard \n")
+        level = input('Enter e for Easy, m for Medium or h for Hard ')     
+    print(f" \n You chose the {chosen_level} level")
+    return chosen_level
 
 
 def start_game(word):
@@ -64,7 +85,6 @@ def start_game(word):
                     print(word_area)
                 print(f"\nYou guessed correctly with the letter "
                       f"{chosen_letter}\n")
-                
                 if '_' not in word_area:
                     guessed_word = True
             elif chosen_letter not in word:
@@ -364,4 +384,4 @@ def game_display(tries):
 
 
 welcome()
-start_game(choose_valid_word())
+choose_level()
