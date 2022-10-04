@@ -72,7 +72,7 @@ def start_game(word):
     guessed_letters = set()
     tries = 7
     guessed_word = False
-    word_area = '_' * len(word)
+    word_area = '_ ' * len(word)
     print(game_display(tries))
     available_letters = sorted(set(string.ascii_uppercase))
     print(f"These are the available letters:\n {available_letters}\n")
@@ -86,9 +86,11 @@ def start_game(word):
             available_letters.remove(chosen_letter)
             guessed_letters.add(chosen_letter)
             if chosen_letter in word:
+                word_spaced = ' '.join(word)
+                print(word_spaced)
                 word_area_list = list(word_area)
                 index_of_correct_letter = [i for i,
-                                           letter in enumerate(word)
+                                           letter in enumerate(word_spaced)
                                            if letter == chosen_letter]
                 for i in index_of_correct_letter:
                     print(game_display(tries))
