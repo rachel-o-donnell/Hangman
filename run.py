@@ -114,7 +114,18 @@ def start_game(word):
             print("\n Invalid answer, you must choose a letter\n")
             print(f"The remaining letters are: {available_letters}\n")
     if guessed_word:
-        print('\n You win!')
+        print('\n You win! /n')
+
+
+def end_message():
+    play_again = input('Ready to play again? Y/N').upper()
+    if play_again == 'Y':
+        start_game(choose_valid_word(choose_level()))
+    elif play_again == 'N':
+        print('See you at the next hanging')
+    else:
+        print("Invalid answer, you must answer 'y' for yes or 'n' for no /n")
+        print(play_again)
 
 
 def game_display(tries):
@@ -397,3 +408,4 @@ def game_display(tries):
 
 welcome()
 start_game(choose_valid_word(choose_level()))
+end_message()
