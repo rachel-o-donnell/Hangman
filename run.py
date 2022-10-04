@@ -410,7 +410,13 @@ def game_display(tries):
 
     return hangman_stage[tries]
 
+def main():
+    """ 
+    All functions
+    """
+    welcome()
+    start_game(choose_valid_word(choose_level()))
+    end_message()
 
-welcome()
-start_game(choose_valid_word(choose_level()))
-end_message()
+
+main()
