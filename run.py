@@ -1,5 +1,3 @@
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
 import random
 import string
 from words import words
@@ -81,36 +79,36 @@ def start_game(word):
         if guessed_letters:
             print(f"The remaining letters are: {available_letters}\n")
             print('Your guessed letters:', ' '.join(sorted(guessed_letters)))
-        chosen_letter = input("\nChoose a letter: ").upper()
-        if chosen_letter.isalpha() and chosen_letter in available_letters:
-            available_letters.remove(chosen_letter)
-            guessed_letters.add(chosen_letter)
-            if chosen_letter in word:
+        guess = input("\nChoose a letter: ").upper()
+        if guess.isalpha() and guess in available_letters:
+            available_letters.remove(guess)
+            guessed_letters.add(guess)
+            if guess in word:
                 word_spaced = ' '.join(word)
                 print(word_spaced)
                 word_area_list = list(word_area)
                 index_of_correct_letter = [i for i,
                                            letter in enumerate(word_spaced)
-                                           if letter == chosen_letter]
+                                           if letter == guess]
                 for i in index_of_correct_letter:
                     print(game_display(tries))
-                    word_area_list[i] = chosen_letter
+                    word_area_list[i] = guess
                     word_area = "".join(word_area_list)
                     print(word_area)
                 print(f"\nYou guessed correctly with the letter "
-                      f"{chosen_letter}\n")
+                      f"{guess}\n")
                 if '_' not in word_area:
                     guessed_word = True
-            elif chosen_letter not in word:
+            elif guess not in word:
                 tries = tries - 1
                 print(game_display(tries))
                 print(f"\nOh no! You have lost this guess with the letter "
-                      f"{chosen_letter}\n")
+                      f"{guess}\n")
                 print(f"You have {tries} remaining guesses \n")
                 if tries == 0:
                     print("Oh no! The man has been hanged.")
-        elif chosen_letter.isalpha() and chosen_letter not in available_letters:
-            print(f"You have already used {chosen_letter} \n")
+        elif guess.isalpha() and guess not in available_letters:
+            print(f"You have already used {guess} \n")
             print(f"The remaining letters are: {available_letters}\n")
         else:
             print("\n Invalid answer, you must choose a letter\n")
@@ -421,4 +419,3 @@ def main():
 
 
 main()
-
