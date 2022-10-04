@@ -3,7 +3,7 @@ import string
 from words import words
 
 
-def choose_valid_word(level):
+def choose_word(level):
     """
     Eliminates words that are less than 6 characters long,
     have spaces or have hyphens
@@ -125,7 +125,7 @@ def end_message():
     """
     play_again = input('Ready to play again? Y/N ').upper()
     if play_again == 'Y':
-        start_game(choose_valid_word(choose_level()))
+        start_game(choose_word(choose_level()))
     elif play_again == 'N':
         print('See you at the next hanging')
     else:
@@ -416,7 +416,7 @@ def main():
     All functions
     """
     welcome()
-    start_game(choose_valid_word(choose_level()))
+    start_game(choose_word(choose_level()))
 
 
 main()
