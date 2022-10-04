@@ -5,16 +5,29 @@ import string
 from words import words
 
 
-def choose_valid_word():
+def choose_valid_word(level):
     """
     Eliminates words that are less than 6 characters long,
     have spaces or have hyphens
     Randomly chooses a word for our game.
     """
     word_in_play = random.choice(words).upper()
-    while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) < 6:
-        word_in_play = random.choice(words).upper()
-    print(word_in_play)
+    if level != 'Easy':
+        print(f"You have chosen a {level} level")
+        if level == 'Medium':
+            while '-' in word_in_play or len(word_in_play) > 8 or len(word_in_play) < 5:
+                word_in_play = random.choice(words).upper()
+            print(word_in_play)
+        else:
+            while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) < 9:
+                word_in_play = random.choice(words).upper()
+            print(word_in_play)
+    else:
+        print(f"You have chosen an {level} level")
+    if level == 'Easy':
+        while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) > 5:
+            word_in_play = random.choice(words).upper()
+        print(word_in_play)
     return word_in_play
 
 
@@ -45,8 +58,7 @@ def choose_level():
     else:
         print(" \n Invalid input, "
               "you must enter e for Easy, m for Medium or h for Hard \n")
-        level = input('Enter e for Easy, m for Medium or h for Hard ')     
-    print(f" \n You chose the {chosen_level} level")
+        level = input('Enter e for Easy, m for Medium or h for Hard ')
     return chosen_level
 
 
@@ -384,4 +396,4 @@ def game_display(tries):
 
 
 welcome()
-choose_level()
+start_game(choose_valid_word(choose_level()))
