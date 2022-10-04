@@ -106,7 +106,8 @@ def start_game(word):
                       f"{guess}\n")
                 print(f"You have {tries} remaining guesses \n")
                 if tries == 0:
-                    print("Oh no! The man has been hanged.")
+                    print("Oh no! The man has been hanged.\n")
+                    end_message()
         elif guess.isalpha() and guess not in available_letters:
             print(f"You have already used {guess} \n")
             print(f"The remaining letters are: {available_letters}\n")
@@ -115,13 +116,14 @@ def start_game(word):
             print(f"The remaining letters are: {available_letters}\n")
     if guessed_word:
         print('\n You win! \n')
+        end_message()
 
 
 def end_message():
     """
     Gives player the option to play again or not
     """
-    play_again = input('Ready to play again? Y/N').upper()
+    play_again = input('Ready to play again? Y/N ').upper()
     if play_again == 'Y':
         start_game(choose_valid_word(choose_level()))
     elif play_again == 'N':
@@ -415,7 +417,6 @@ def main():
     """
     welcome()
     start_game(choose_valid_word(choose_level()))
-    end_message()
 
 
 main()
