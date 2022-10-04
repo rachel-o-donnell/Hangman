@@ -3,7 +3,7 @@ import string
 from words import words
 
 
-def choose_word(level):
+def choose_valid_word(level):
     """
     Eliminates words that are less than 6 characters long,
     have spaces or have hyphens
@@ -71,7 +71,7 @@ def start_game(word):
     tries = 7
     guessed_word = False
     word_area = '_ ' * len(word)
-    print(game_display(tries))
+    print(game_display(tries, word, word_area))
     available_letters = sorted(set(string.ascii_uppercase))
     print(f"These are the available letters:\n {available_letters}\n")
     while tries > 0 and not guessed_word:
@@ -91,7 +91,7 @@ def start_game(word):
                                            letter in enumerate(word_spaced)
                                            if letter == guess]
                 for i in index_of_correct_letter:
-                    print(game_display(tries))
+                    print(game_display(tries, word, word_area))
                     word_area_list[i] = guess
                     word_area = "".join(word_area_list)
                     print(word_area)
@@ -101,7 +101,7 @@ def start_game(word):
                     guessed_word = True
             elif guess not in word:
                 tries = tries - 1
-                print(game_display(tries))
+                print(game_display(tries, word, word_area))
                 print(f"\nOh no! You have lost this guess with the letter "
                       f"{guess}\n")
                 print(f"You have {tries} remaining guesses \n")
@@ -125,7 +125,7 @@ def end_message():
     """
     play_again = input('Ready to play again? Y/N ').upper()
     if play_again == 'Y':
-        start_game(choose_word(choose_level()))
+        start_game(choose_valid_word(choose_level()))
     elif play_again == 'N':
         print('See you at the next hanging')
     else:
@@ -133,11 +133,11 @@ def end_message():
         print(play_again)
 
 
-def game_display(tries):
+def game_display(tries, word, word_area):
     """
     displays the visuals of the game to the player
     """
-    hangman_stage = ["""
+    hangman_stage = [f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -166,10 +166,11 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |      word: {word_area}            | /
                        |___________________________________|/
                        """,
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -198,11 +199,12 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |    word:   {word_area}            | /
                        |___________________________________|/
                        """,
 
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -233,11 +235,12 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |    word:   {word_area}            | /
                        |___________________________________|/
                        """,
 
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -268,11 +271,12 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |    word:   {word_area}            | /
                        |___________________________________|/
                        """,
 
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -302,11 +306,12 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |    word:   {word_area}            | /
                        |___________________________________|/
                        """,
 
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -336,11 +341,12 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |    word:   {word_area}            | /
                        |___________________________________|/
                        """,
 
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -369,11 +375,12 @@ def game_display(tries):
                         | ____________________________________
                         |/                                   /|
                         /___________________________________/ |
-                       |                                   | /
+                       |                                   |  |
+                       |    word:   {word_area}            | /
                        |___________________________________|/
                        """,
 
-                     """
+                     f"""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -399,11 +406,14 @@ def game_display(tries):
                         |
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   | /
-                       |____ ______________________________|/
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |
+                       |     The word is {len(word)} letters long   
+                       |                                     |  |
+                       |       word: {word_area}            
+                       |_____________________________________|/
                        \n
                        \n
                        """]
@@ -416,7 +426,7 @@ def main():
     All functions
     """
     welcome()
-    start_game(choose_word(choose_level()))
+    start_game(choose_valid_word(choose_level()))
 
 
 main()
