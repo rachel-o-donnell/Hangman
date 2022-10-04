@@ -118,6 +118,9 @@ def start_game(word):
 
 
 def end_message():
+    """
+    Gives player the option to play again or not
+    """
     play_again = input('Ready to play again? Y/N').upper()
     if play_again == 'Y':
         start_game(choose_valid_word(choose_level()))
