@@ -15,17 +15,17 @@ def choose_valid_word(level):
     if level != 'Easy':
         print(f"You have chosen a {level} level")
         if level == 'Medium':
-            while '-' in word_in_play or len(word_in_play) > 8 or len(word_in_play) < 5:
+            while len(word_in_play) < 5 and len(word_in_play) > 8:
                 word_in_play = random.choice(words).upper()
             print(word_in_play)
         else:
-            while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) < 9:
+            while len(word_in_play) < 9:
                 word_in_play = random.choice(words).upper()
             print(word_in_play)
     else:
         print(f"You have chosen an {level} level")
     if level == 'Easy':
-        while ' ' in word_in_play or '-' in word_in_play or len(word_in_play) > 5:
+        while len(word_in_play) > 5:
             word_in_play = random.choice(words).upper()
         print(word_in_play)
     return word_in_play
@@ -421,3 +421,4 @@ def main():
 
 
 main()
+
