@@ -116,7 +116,7 @@ def start_game(word):
             print("\n Invalid answer, you must choose a letter\n")
             print(f"The remaining letters are: {available_letters}\n")
     if guessed_word:
-        print('\n You win! /n')
+        print('\n You win! \n')
 
 
 def end_message():
