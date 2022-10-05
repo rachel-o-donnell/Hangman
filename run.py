@@ -13,7 +13,7 @@ def choose_valid_word(level):
     if level != 'Easy':
         print(f"You have chosen a {level} level")
         if level == 'Medium':
-            while len(word_in_play) < 5 and len(word_in_play) > 8:
+            while len(word_in_play) < 6 and len(word_in_play) > 9:
                 word_in_play = random.choice(words).upper()
             print(word_in_play)
         else:
@@ -23,7 +23,7 @@ def choose_valid_word(level):
     else:
         print(f"You have chosen an {level} level")
     if level == 'Easy':
-        while len(word_in_play) != 5:
+        while len(word_in_play) < 4 and len(word_in_play) > 6:
             word_in_play = random.choice(words).upper()
         print(word_in_play)
     return word_in_play
@@ -103,6 +103,7 @@ def start_game(word):
             elif guess not in word:
                 tries = tries - 1
                 print(game_display(tries, word, word_area))
+                base(word, word_area)
                 print(f"\nOh no! You have lost this guess with the letter "
                       f"{guess}\n")
                 print(f"You have {tries} remaining guesses \n")
@@ -139,7 +140,7 @@ def game_display(tries, word, word_area):
     """
     displays the visuals of the game to the player
     """
-    hangman_stage = [f"""
+    hangman_stage = ["""
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -165,14 +166,12 @@ def game_display(tries, word, word_area):
                         |                 %=/      \\=%
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |      word: {word_area}            | /
-                       |___________________________________|/
-                       """,
-                     f"""
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
+
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -198,15 +197,12 @@ def game_display(tries, word, word_area):
                         |                 %=/
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |    word:   {word_area}            | /
-                       |___________________________________|/
-                       """,
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
 
-                     f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -234,15 +230,12 @@ def game_display(tries, word, word_area):
                         |
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |    word:   {word_area}            | /
-                       |___________________________________|/
-                       """,
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
 
-                     f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -270,15 +263,12 @@ def game_display(tries, word, word_area):
                         |
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |    word:   {word_area}            | /
-                       |___________________________________|/
-                       """,
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
 
-                     f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -305,15 +295,12 @@ def game_display(tries, word, word_area):
                         |
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |    word:   {word_area}            | /
-                       |___________________________________|/
-                       """,
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
 
-                     f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -340,15 +327,12 @@ def game_display(tries, word, word_area):
                         |
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |    word:   {word_area}            | /
-                       |___________________________________|/
-                       """,
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
 
-                     f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -374,13 +358,10 @@ def game_display(tries, word, word_area):
                         |
                         |
                         |
-                        | ____________________________________
-                        |/                                   /|
-                        /___________________________________/ |
-                       |                                   |  |
-                       |    word:   {word_area}            | /
-                       |___________________________________|/
-                       """,
+                        | ______________________________________
+                        |/                                     /|
+                        /____________________________________ / |
+                       |                                     |  |""",
 
                      """
                          ________________________
@@ -416,42 +397,89 @@ def game_display(tries, word, word_area):
 
 
 def base(word, word_area):
-    ''' '''
+    '''
+    Prints the base box of the game display with the details of the word
+    and word area without disrupting the size of the box container
+    '''
     if len(word) == 4:
-        print('                       ')
-        print(f"""|    The word is 4 letters long      |  |
+        box = (f"""                       |      The word is"""
+               f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |            word: {word_area}          | /
+                       |             word: {word_area}          | /
                        |_____________________________________|/
-
-                       """)
+                       \n""")
     elif len(word) == 5:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |           word: {word_area}          | /
                        |_____________________________________|/
-                    
-                       """)
-        print(box)
+                       \n""")
     elif len(word) == 6:
-        game_base = f"""                       |     The word is {len(word)} letters long      |  |
+        box = (f"""                       |      The word is"""
+               f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |          word: {word_area}           | /
+                       |           word: {word_area}        | /
                        |_____________________________________|/
-
-                       """
-        print(game_base)
+                       \n""")
     elif len(word) == 7:
-        game_base = f"""                       |     The word is {len(word)} letters long      |  |
+        box = (f"""                       |      The word is"""
+               f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |        word: {word_area}            | /
+                       |         word: {word_area}        | /
                        |_____________________________________|/
-
-                       """
-        print(game_base)
-    else:
-        print('other')
+                       \n""")
+    elif len(word) == 8:
+        box = (f"""                       |      The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |         word: {word_area}      | /
+                       |_____________________________________|/
+                       \n""")
+        print(box)
+    elif len(word) == 9:
+        box = (f"""                       |      The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |        word: {word_area}     | /
+                       |_____________________________________|/
+                       \n""")
+    elif len(word) == 10:
+        box = (f"""                       |     The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |       word: {word_area}    | /
+                       |_____________________________________|/
+                       \n""")
+    elif len(word) == 11:
+        box = (f"""                       |     The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |      word: {word_area}   | /
+                       |_____________________________________|/
+                       \n""")
+    elif len(word) == 12:
+        box = (f"""                       |     The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |     word: {word_area}  | /
+                       |_____________________________________|/
+                       \n""")
+    elif len(word) == 13:
+        box = (f"""                       |     The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |    word: {word_area} | /
+                       |_____________________________________|/
+                       \n""")
+    elif len(word) == 14:
+        box = (f"""                       |     The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |  word: {word_area} | /
+                       |_____________________________________|/
+                       \n""")
+    print(box)
 
 
 def main():
