@@ -31,13 +31,29 @@ def choose_valid_word(level):
 
 def welcome():
     """
-    Prints opening message to the terminal
+    Prints opening message to the terminal and prints the rules of the game 
+    if the player chooses to see them
     """
-    welcome_msg = (
-        "Welcome to Hangman, you have 7 tries to guess "
-        "the correct letters or you will be hanged\n"
-    )
-    print(welcome_msg)
+    print('Welcome to your scheduled hanging. \n')
+    answer = input('Do you need to know the rules? Y/N ').upper()
+    if answer == 'Y':
+        rules = (
+                '\n Hangman is a game where you try to guess a given word one '
+                'letter at a time. \n If your answer is wrong you will be '
+                'hanged piece by piece.\n\n You have 7 parts to be hung, '
+                'so you can only have 6 wrong answers or you will die. \n You '
+                'can guess as many correct letters as needed to be saved. \n\n'
+                ' There are 3 different levels : \n '
+                'Easy contains words that are 4-6 letters long \n '
+                'Medium contains words that are 7-9 letters long \n '
+                'Hard contains words that are 10-14 letters long \n '
+            )
+        print(rules)
+    elif answer == 'N':
+        print('\n Ok, crowd are getting impatient anyways \n')
+    else:
+        print('\n Invalid answer, you must type either Y or N')
+        input('Do you need to know the rules? Y/N ')
 
 
 def choose_level():
