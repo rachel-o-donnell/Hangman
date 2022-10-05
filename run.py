@@ -23,7 +23,7 @@ def choose_valid_word(level):
     else:
         print(f"You have chosen an {level} level")
     if level == 'Easy':
-        while len(word_in_play) > 5:
+        while len(word_in_play) != 5:
             word_in_play = random.choice(words).upper()
         print(word_in_play)
     return word_in_play
@@ -72,10 +72,10 @@ def start_game(word):
     guessed_word = False
     word_area = '_ ' * len(word)
     print(game_display(tries, word, word_area))
+    base(word, word_area)
     available_letters = sorted(set(string.ascii_uppercase))
     print(f"These are the available letters:\n {available_letters}\n")
     while tries > 0 and not guessed_word:
-        print(f"The word is {len(word)} letters long: \n\n {word_area}\n")
         if guessed_letters:
             print(f"The remaining letters are: {available_letters}\n")
             print('Your guessed letters:', ' '.join(sorted(guessed_letters)))
@@ -92,6 +92,7 @@ def start_game(word):
                                            if letter == guess]
                 for i in index_of_correct_letter:
                     print(game_display(tries, word, word_area))
+                    base(word, word_area)
                     word_area_list[i] = guess
                     word_area = "".join(word_area_list)
                     print(word_area)
@@ -117,6 +118,7 @@ def start_game(word):
     if guessed_word:
         print('\n You win! \n')
         end_message()
+    return word_area
 
 
 def end_message():
@@ -380,7 +382,7 @@ def game_display(tries, word, word_area):
                        |___________________________________|/
                        """,
 
-                     f"""
+                     """
                          ________________________
                         |   /                   |
                         |  /                    |
@@ -409,16 +411,47 @@ def game_display(tries, word, word_area):
                         | ______________________________________
                         |/                                     /|
                         /____________________________________ / |
-                       |                                     |  |
-                       |     The word is {len(word)} letters long   
-                       |                                     |  |
-                       |       word: {word_area}            
-                       |_____________________________________|/
-                       \n
-                       \n
-                       """]
-
+                       |                                     |  |"""]
     return hangman_stage[tries]
+
+
+def base(word, word_area):
+    ''' '''
+    if len(word) == 4:
+        print('                       ')
+        print(f"""|    The word is 4 letters long      |  |
+                       |                                     |  |
+                       |            word: {word_area}          | /
+                       |_____________________________________|/
+
+                       """)
+    elif len(word) == 5:
+        box = (f"""                       |      The word is"""
+               f""" {len(word)} letters long     |  |
+                       |                                     |  |
+                       |           word: {word_area}          | /
+                       |_____________________________________|/
+                    
+                       """)
+        print(box)
+    elif len(word) == 6:
+        game_base = f"""                       |     The word is {len(word)} letters long      |  |
+                       |                                     |  |
+                       |          word: {word_area}           | /
+                       |_____________________________________|/
+
+                       """
+        print(game_base)
+    elif len(word) == 7:
+        game_base = f"""                       |     The word is {len(word)} letters long      |  |
+                       |                                     |  |
+                       |        word: {word_area}            | /
+                       |_____________________________________|/
+
+                       """
+        print(game_base)
+    else:
+        print('other')
 
 
 def main():
