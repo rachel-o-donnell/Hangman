@@ -3,12 +3,6 @@ import string
 from words import words
 
 
-def jls_extract_def(word_in_play):
-    while len(word_in_play) < 9 and len(word_in_play) > 14:
-        word_in_play = random.choice(words).upper()
-    return word_in_play
-
-
 def choose_valid_word(level):
     """
     Eliminates words that are less than 6 characters long,
@@ -23,7 +17,7 @@ def choose_valid_word(level):
                 word_in_play = random.choice(words).upper()
             print(word_in_play)
         else:
-            while len(word_in_play) < 10 or len(word_in_play) > 14: 
+            while len(word_in_play) < 10 or len(word_in_play) > 14:
                 word_in_play = random.choice(words).upper()
             print(word_in_play)
     else:
