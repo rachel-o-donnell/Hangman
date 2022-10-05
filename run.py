@@ -71,7 +71,7 @@ def start_game(word):
     tries = 7
     guessed_word = False
     word_area = '_ ' * len(word)
-    print(game_display(tries, word, word_area))
+    print(game_display(tries))
     base(word, word_area)
     available_letters = sorted(set(string.ascii_uppercase))
     print(f"These are the available letters:\n {available_letters}\n")
@@ -91,7 +91,7 @@ def start_game(word):
                                            letter in enumerate(word_spaced)
                                            if letter == guess]
                 for i in index_of_correct_letter:
-                    print(game_display(tries, word, word_area))
+                    print(game_display(tries))
                     base(word, word_area)
                     word_area_list[i] = guess
                     word_area = "".join(word_area_list)
@@ -102,7 +102,7 @@ def start_game(word):
                     guessed_word = True
             elif guess not in word:
                 tries = tries - 1
-                print(game_display(tries, word, word_area))
+                print(game_display(tries))
                 base(word, word_area)
                 print(f"\nOh no! You have lost this guess with the letter "
                       f"{guess}\n")
@@ -136,7 +136,7 @@ def end_message():
         print(play_again)
 
 
-def game_display(tries, word, word_area):
+def game_display(tries):
     """
     displays the visuals of the game to the player
     """
@@ -399,7 +399,8 @@ def game_display(tries, word, word_area):
 def base(word, word_area):
     '''
     Prints the base box of the game display with the details of the word
-    and word area without disrupting the size of the box container
+    and word area without disrupting the size of the box container no matter
+    the length of the word
     '''
     if len(word) == 4:
         box = (f"""                       |      The word is"""

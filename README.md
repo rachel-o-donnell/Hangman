@@ -41,3 +41,4 @@ I added a condition to make sure it was alpha and that it was not in available l
 
 bug that was fixed during a big clean up - my \ neaded to be \\ in order to not break the lines in graphics.
 
+word area is not being completed immediately.
