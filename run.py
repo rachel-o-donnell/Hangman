@@ -87,6 +87,7 @@ def start_game(word):
     guessed = set()
     tries = 7
     guessed_word = False
+    word_spaced = ' '.join(word)
     word_area = '_ ' * len(word)
     print(game_display(tries))
     base(word, word_area)
@@ -94,6 +95,8 @@ def start_game(word):
     available = ' '.join(alphabet)
     print(f" Available letters:\n\n {available}\n")
     while tries > 0 and not guessed_word:
+        if tries == 2:
+            get_clue(word, word_spaced, tries, word, word_area)
         if guessed:
             print(f" Remaining letters: {available}\n")
             print(' Guessed letters:', ' '.join(sorted(guessed)))
@@ -102,9 +105,9 @@ def start_game(word):
             ind = available.index(guess)
             if len(available) > ind:
                 available = available[0: ind:] + available[ind + 1::]
+                '''remove letters if hail_mary is true '''
             guessed.add(guess)
             if guess in word:
-                word_spaced = ' '.join(word)
                 print(word_spaced)
                 word_area_list = list(word_area)
                 index_of_correct_letter = [i for i,
@@ -150,6 +153,37 @@ def start_game(word):
               ' date with the gallows.\n\n')
         end_message()
     return word_area
+
+
+def get_clue(word_area_list, word_spaced, tries, word, word_area):
+    '''
+    gives clue
+    itterate through wrod area until if finds a '_' - checks this
+     against word and reveals the letter.
+        removes from available letters and prints hail mary
+        tries + 1
+    '''
+    hail_mary = input(' !!! WARNING !!! \n '
+                      'You are gangerously close to death. \n '
+                      'You can sacrifice next part of yourself to reveal'
+                      ' one letter \n Do you want a hail mary? Y/N ').upper()
+    print(hail_mary)
+    if hail_mary == 'Y':
+        hail_mary = True
+        ''' available_letters = here or in start_game
+        index_of_clue = [i for i, letter in enumerate(word_area_list)
+                         if letter != '_']
+        for i in index_of_clue:
+            print(game_display(tries))
+            base(word, word_area)
+            word_area_list[i] = index_of_clue
+            word_area = "".join(word_area_list)
+            print(word_area)       '''     
+    elif hail_mary == 'N':
+        print('No')
+    else:
+        print('\n  Invalid answer, you must type either Y or N \n')
+        input('Do you want a hail Mary? Y/N ')
 
 
 def end_message():
