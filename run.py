@@ -90,15 +90,18 @@ def start_game(word):
     word_area = '_ ' * len(word)
     print(game_display(tries))
     base(word, word_area)
-    available_letters = sorted(set(string.ascii_uppercase))
-    print(f"These are your available letters:\n {available_letters}\n")
+    alphabet = sorted(set(string.ascii_uppercase))
+    available_letters = ' '.join(alphabet)
+    print(f"These are your available letters:\n\n {available_letters}\n")
     while tries > 0 and not guessed_word:
         if guessed_letters:
             print(f"The remaining letters are: {available_letters}\n")
             print('Your guessed letters:', ' '.join(sorted(guessed_letters)))
         guess = input("\nChoose a letter: ").upper()
         if guess.isalpha() and guess in available_letters:
-            available_letters.remove(guess)
+            ind = available_letters.index(guess)
+            if len(available_letters) > ind:
+                available_letters = available_letters[0: ind:] + available_letters[ind + 1::]
             guessed_letters.add(guess)
             if guess in word:
                 word_spaced = ' '.join(word)

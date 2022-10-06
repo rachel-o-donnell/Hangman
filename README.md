@@ -50,3 +50,7 @@ word area is not being completed immediately.
 figuring out how to connect the words inside the base of the display was lengthy!
 
 if you input the and invalid y/n at rules a 2nd time it 
+
+
+credit
+https://thispointer.com/python-how-to-remove-characters-from-a-string-by-index/ getting the index of the guess letter and removing it from a string
