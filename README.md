@@ -41,4 +41,12 @@ I added a condition to make sure it was alpha and that it was not in available l
 
 bug that was fixed during a big clean up - my \ neaded to be \\ in order to not break the lines in graphics.
 
+bug 5: 
+choose_valid_word was messed up because I had and statements instead of or. Fixed the min and max of each length word also
 word area is not being completed immediately.
+
+
+
+figuring out how to connect the words inside the base of the display was lengthy!
+
+if you input the and invalid y/n at rules a 2nd time it 
