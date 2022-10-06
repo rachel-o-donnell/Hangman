@@ -3,7 +3,7 @@ import string
 from words import words
 
 
-def choose_valid_word(level):
+def get_word(level):
     """
     Eliminates words that are less than 6 characters long,
     have spaces or have hyphens
@@ -84,25 +84,25 @@ def start_game(word):
     is in the available letters list,
     and whether it is a correct or incorrect guess
     """
-    guessed_letters = set()
+    guessed = set()
     tries = 7
     guessed_word = False
     word_area = '_ ' * len(word)
     print(game_display(tries))
     base(word, word_area)
     alphabet = sorted(set(string.ascii_uppercase))
-    available_letters = ' '.join(alphabet)
-    print(f"These are your available letters:\n\n {available_letters}\n")
+    available = ' '.join(alphabet)
+    print(f"Available letters:\n\n {available}\n")
     while tries > 0 and not guessed_word:
-        if guessed_letters:
-            print(f"The remaining letters are: {available_letters}\n")
-            print('Your guessed letters:', ' '.join(sorted(guessed_letters)))
+        if guessed:
+            print(f"The remaining letters are: {available}\n")
+            print('Guessed letters:', ' '.join(sorted(guessed)))
         guess = input("\nChoose a letter: ").upper()
-        if guess.isalpha() and guess in available_letters:
-            ind = available_letters.index(guess)
-            if len(available_letters) > ind:
-                available_letters = available_letters[0: ind:] + available_letters[ind + 1::]
-            guessed_letters.add(guess)
+        if guess.isalpha() and guess in available:
+            ind = available.index(guess)
+            if len(available) > ind:
+                available = available[0: ind:] + available[ind + 1::]
+            guessed.add(guess)
             if guess in word:
                 word_spaced = ' '.join(word)
                 print(word_spaced)
@@ -133,12 +133,12 @@ def start_game(word):
                           'The only part of your body with any life left '
                           'is your curly locks blowing in the wind.\n')
                     end_message()
-        elif guess.isalpha() and guess not in available_letters:
+        elif guess.isalpha() and guess not in available:
             print(f"You have already used {guess} \n")
-            print(f"The remaining letters are: {available_letters}\n")
+            print(f"The remaining letters are: {available}\n")
         else:
             print("\n Invalid answer, you must choose a letter\n")
-            print(f"The remaining letters are: {available_letters}\n")
+            print(f"The remaining letters are: {available}\n")
     if guessed_word:
         print('\n You survived! The crowd has been won over by your curly'
               'bufont and are cheering for you. You have been '
@@ -154,7 +154,7 @@ def end_message():
     """
     play_again = input('Ready to risk your life again? Y/N ').upper()
     if play_again == 'Y':
-        start_game(choose_valid_word(choose_level()))
+        start_game(get_word(choose_level()))
     elif play_again == 'N':
         print('See you at the next hanging!')
     else:
@@ -514,7 +514,7 @@ def main():
     All functions
     """
     welcome()
-    start_game(choose_valid_word(choose_level()))
+    start_game(get_word(choose_level()))
 
 
 main()
