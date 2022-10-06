@@ -34,8 +34,8 @@ def welcome():
     Prints opening message to the terminal and prints the rules of the game
     if the player chooses to see them
     """
-    print('Welcome to your scheduled hanging. \n'
-          'You have an opportunity to save yourself from certain death.')
+    print('Welcome to your scheduled hanging. \n\n'
+          'If the fates allow, you can save yourself from certain death.\n')
     answer = input('Would you like to know the rules? Y/N ').upper()
     if answer == 'Y':
         rules = (
@@ -95,7 +95,7 @@ def start_game(word):
     print(f"Available letters:\n\n {available}\n")
     while tries > 0 and not guessed_word:
         if guessed:
-            print(f"The remaining letters are: {available}\n")
+            print(f"Remaining letters: {available}\n")
             print('Guessed letters:', ' '.join(sorted(guessed)))
         guess = input("\nChoose a letter: ").upper()
         if guess.isalpha() and guess in available:
@@ -124,26 +124,30 @@ def start_game(word):
                 tries = tries - 1
                 print(game_display(tries))
                 base(word, word_area)
-                print(f"\nOh no! You have lost this guess with the letter "
-                      f"{guess}\n")
-                print(f"You have {tries} remaining wrong guesses before your"
-                      " demise.\n")
+                if tries != 0:
+                    print(f"\nOh no! You have lost this guess with the letter "
+                          f"{guess}\n")
+                    print(f"You have {tries} remaining wrong guesses before "
+                          "your demise.\n")
                 if tries == 0:
-                    print('Whelp! The crowd is satiated. \n'
+                    print('Whelp! The crowd is satiated from a suspensful '
+                          'hanging. \n'
                           'The only part of your body with any life left '
                           'is your curly locks blowing in the wind.\n')
                     end_message()
         elif guess.isalpha() and guess not in available:
-            print(f"You have already used {guess} \n")
-            print(f"The remaining letters are: {available}\n")
+            print(f"\nYou have already used {guess} \n")
         else:
             print("\n Invalid answer, you must choose a letter\n")
             print(f"The remaining letters are: {available}\n")
     if guessed_word:
-        print('\n You survived! The crowd has been won over by your curly'
-              'bufont and are cheering for you. You have been '
-              'approached to star on the front cover of "Hangings Monthly"'
-              'and offered a sponsorship deal with "Cauldron Curls" \n')
+        print('\nYou survived! The crowd has been mesmerised by your curly'
+              ' bufont and are cheering for more.\n\nYou have been '
+              'approached to star on the front cover of "Hangings Monthly" and'
+              ' offered \n\na sponsorship deal with "Cauldron Curls '
+              '- curls so defined it must be witchcraft". \n\n'
+              'It pays well but will surely draw more attention, and another'
+              ' date with the gallows.\n\n')
         end_message()
     return word_area
 
@@ -152,11 +156,11 @@ def end_message():
     """
     Gives player the option to play again or not
     """
-    play_again = input('Ready to risk your life again? Y/N ').upper()
+    play_again = input('Take the deal and risk your life again? Y/N ').upper()
     if play_again == 'Y':
         start_game(get_word(choose_level()))
     elif play_again == 'N':
-        print('See you at the next hanging!')
+        print('\nSee you at the next hanging!')
     else:
         print("Invalid answer, you must answer 'y' for yes or 'n' for no /n")
         print(play_again)
@@ -428,14 +432,14 @@ def base(word, word_area):
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |             word: {word_area}          | /
+                       |             Word: {word_area}          | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 5:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |           word: {word_area}          | /
+                       |           Word: {word_area}          | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 6:
@@ -449,7 +453,7 @@ def base(word, word_area):
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |         word: {word_area}        | /
+                       |         Word: {word_area}        | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 8:
@@ -464,42 +468,42 @@ def base(word, word_area):
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |        word: {word_area}     | /
+                       |        Word: {word_area}     | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 10:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |       word: {word_area}    | /
+                       |       Word: {word_area}    | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 11:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |      word: {word_area}   | /
+                       |      Word: {word_area}   | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 12:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |     word: {word_area}  | /
+                       |     Word: {word_area}  | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 13:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |    word: {word_area} | /
+                       |    Word: {word_area} | /
                        |_____________________________________|/
                        \n""")
     elif len(word) == 14:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
-                       |  word: {word_area} | /
+                       |  Word: {word_area} | /
                        |_____________________________________|/
                        \n""")
     print(box)
