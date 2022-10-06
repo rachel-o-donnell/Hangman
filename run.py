@@ -21,7 +21,7 @@ def get_word(level):
                 word_in_play = random.choice(words).upper()
             print(word_in_play)
     else:
-        print(f"You have chosen an {level} level")
+        print(f" You have chosen an {level} level")
     if level == 'Easy':
         while len(word_in_play) < 4 or len(word_in_play) > 6:
             word_in_play = random.choice(words).upper()
@@ -34,27 +34,27 @@ def welcome():
     Prints opening message to the terminal and prints the rules of the game
     if the player chooses to see them
     """
-    print('Welcome to your scheduled hanging. \n\n'
-          'If the fates allow, you can save yourself from certain death.\n')
-    answer = input('Would you like to know the rules? Y/N ').upper()
+    print(' Welcome to your scheduled hanging. \n\n'
+          ' If the fates allow, you can save yourself from certain death.\n')
+    answer = input(' Would you like to know the rules? Y/N ').upper()
     if answer == 'Y':
         rules = (
-                '\n Hangman is a game where you try to guess a given word one '
-                'letter at a time. \n If your answer is wrong you will be '
-                'hanged piece by piece.\n\n Your body will be hanged in 7 '
+                '\n  Hangman is a game where you try to guess a given word '
+                'one letter at a time. \n  If your answer is wrong you will be'
+                ' hanged piece by piece.\n\n  Your body will be hanged in 7 '
                 'parts, so you can only have 6 wrong answers or you will die. '
-                '\n You can guess as many correct letters as needed to be '
-                'saved. \n\n There are 3 different levels : \n '
-                'Easy contains words that are 4-6 letters long \n '
-                'Medium contains words that are 7-9 letters long \n '
-                'Hard contains words that are 10-14 letters long \n '
+                '\n  You can guess as many correct letters as needed to be '
+                'saved. \n\n  There are 3 different levels : \n  '
+                'Easy contains words that are 4-6 letters long \n  '
+                'Medium contains words that are 7-9 letters long \n  '
+                'Hard contains words that are 10-14 letters long \n  '
             )
         print(rules)
     elif answer == 'N':
-        print('\n Ok, crowd are getting impatient anyways \n')
+        print('\n  Ok, crowd are getting impatient anyways \n')
     else:
-        print('\n Invalid answer, you must type either Y or N')
-        input('Do you need to know the rules? Y/N ')
+        print('\n  Invalid answer, you must type either Y or N')
+        input(' Do you need to know the rules? Y/N ')
 
 
 def choose_level():
@@ -62,8 +62,8 @@ def choose_level():
     Asks player to choose a difficulty setting
     """
     chosen_level = ''
-    print("Choose your difficulty: \n")
-    level = input('Enter (E)asy, (M)edium or (H)ard ').upper()
+    print(" Choose your difficulty: \n")
+    level = input(' Enter (E)asy, (M)edium or (H)ard ').upper()
     if level == 'E':
         chosen_level = "Easy"
     elif level == 'M':
@@ -73,7 +73,7 @@ def choose_level():
     else:
         print(" \n Invalid input, "
               "you must enter e for Easy, m for Medium or h for Hard \n")
-        level = input('Enter (E)asy, (M)edium or (H)ard ')
+        level = input(' Enter (E)asy, (M)edium or (H)ard ')
     return chosen_level
 
 
@@ -92,12 +92,12 @@ def start_game(word):
     base(word, word_area)
     alphabet = sorted(set(string.ascii_uppercase))
     available = ' '.join(alphabet)
-    print(f"Available letters:\n\n {available}\n")
+    print(f" Available letters:\n\n {available}\n")
     while tries > 0 and not guessed_word:
         if guessed:
-            print(f"Remaining letters: {available}\n")
-            print('Guessed letters:', ' '.join(sorted(guessed)))
-        guess = input("\nChoose a letter: ").upper()
+            print(f" Remaining letters: {available}\n")
+            print(' Guessed letters:', ' '.join(sorted(guessed)))
+        guess = input("\n Choose a letter: ").upper()
         if guess.isalpha() and guess in available:
             ind = available.index(guess)
             if len(available) > ind:
@@ -116,7 +116,7 @@ def start_game(word):
                     word_area_list[i] = guess
                     word_area = "".join(word_area_list)
                     print(word_area)
-                print(f"\nPhew! You guessed correctly with the letter "
+                print(f"\n Phew! You guessed correctly with the letter "
                       f"{guess}\n")
                 if '_' not in word_area:
                     guessed_word = True
@@ -125,28 +125,28 @@ def start_game(word):
                 print(game_display(tries))
                 base(word, word_area)
                 if tries != 0:
-                    print(f"\nOh no! You have lost this guess with the letter "
-                          f"{guess}\n")
-                    print(f"You have {tries} remaining wrong guesses before "
+                    print(f"\n Oh no! You have lost this guess with the letter"
+                          f" {guess}\n")
+                    print(f" You have {tries} remaining wrong guesses before "
                           "your demise.\n")
                 if tries == 0:
-                    print('Whelp! The crowd is satiated from a suspensful '
+                    print(' Whelp! The crowd is satiated from a suspensful '
                           'hanging. \n'
-                          'The only part of your body with any life left '
+                          ' The only part of your body with any life left '
                           'is your curly locks blowing in the wind.\n')
                     end_message()
         elif guess.isalpha() and guess not in available:
-            print(f"\nYou have already used {guess} \n")
+            print(f"\n You have already used {guess} \n")
         else:
-            print("\n Invalid answer, you must choose a letter\n")
-            print(f"The remaining letters are: {available}\n")
+            print("\n  Invalid answer, you must choose a letter\n")
+            print(f" The remaining letters are: {available}\n")
     if guessed_word:
-        print('\nYou survived! The crowd has been mesmerised by your curly'
-              ' bufont and are cheering for more.\n\nYou have been '
+        print('\n You survived! The crowd has been mesmerised by your curly'
+              ' bufont and are cheering for more.\n\n You have been '
               'approached to star on the front cover of "Hangings Monthly" and'
-              ' offered \n\na sponsorship deal with "Cauldron Curls '
+              ' offered \n a sponsorship deal with "Cauldron Curls '
               '- curls so defined it must be witchcraft". \n\n'
-              'It pays well but will surely draw more attention, and another'
+              ' It pays well but will surely draw more attention, and another'
               ' date with the gallows.\n\n')
         end_message()
     return word_area
@@ -156,13 +156,13 @@ def end_message():
     """
     Gives player the option to play again or not
     """
-    play_again = input('Take the deal and risk your life again? Y/N ').upper()
+    play_again = input(' Take the deal and risk your life again? Y/N ').upper()
     if play_again == 'Y':
         start_game(get_word(choose_level()))
     elif play_again == 'N':
-        print('\nSee you at the next hanging!')
+        print('\n See you at the next hanging!')
     else:
-        print("Invalid answer, you must answer 'y' for yes or 'n' for no /n")
+        print(" Invalid answer, you must answer 'y' for yes or 'n' for no /n")
         print(play_again)
 
 
