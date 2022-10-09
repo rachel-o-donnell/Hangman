@@ -134,17 +134,19 @@ def start_game(word):
                     print(f" You have {tries} remaining wrong guesses before "
                           "your demise.\n")
                 if tries == 0:
+                    alive = False
                     print(' Whelp! The crowd is satiated from a suspensful '
                           'hanging. \n'
                           ' The only part of your body with any life left '
                           'is your curly locks blowing in the wind.\n')
-                    end_message()
+                    end_message(alive)
         elif guess.isalpha() and guess not in available:
             print(f"\n You have already used {guess} \n")
         else:
             print("\n  Invalid answer, you must choose a letter\n")
             print(f" The remaining letters are: {available}\n")
     if guessed_word:
+        alive = True
         print('\n You survived! The crowd has been mesmerised by your curly'
               ' bufont and are cheering for more.\n\n You have been '
               'approached to star on the front cover of "Hangings Monthly" and'
@@ -152,7 +154,7 @@ def start_game(word):
               '- curls so defined it must be witchcraft". \n\n'
               ' It pays well but will surely draw more attention, and another'
               ' date with the gallows.\n\n')
-        end_message()
+        end_message(alive)
     return word_area
 
 
@@ -187,13 +189,19 @@ def get_clue(available, guessed, tries, word, word_area):
             print('\n  Invalid answer, you must type either Y or N \n')
 
 
-def end_message():
+def end_message(alive):
     """
     Gives player the option to play again or not
     """
+
     play_again = False
     while play_again is False:
-        replay = input(' Take the deal and risk your life again? Y/N ').upper()
+        if alive is True:
+            replay = input(' Take the deal and risk your life again?'
+                           ' Y/N ').upper()
+        elif alive is False:
+            replay = input(' Make a deal with the devil to ressurect '
+                           'yourself and play again? Y/N ').upper()
         if replay == 'Y':
             play_again = True
             start_game(get_word(choose_level()))
@@ -201,8 +209,8 @@ def end_message():
             play_again = True
             print('\n See you at the next hanging!')
         else:
-            print(" \n Invalid answer, you must answer 'y' for yes or 'n' for "
-                  "no \n")
+            print(" \n Invalid answer, you must answer 'y' for yes or 'n' "
+                  "for no \n")
 
 
 def game_display(tries):
