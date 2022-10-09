@@ -45,9 +45,9 @@ bug 5:
 choose_valid_word was messed up because I had and statements instead of or. Fixed the min and max of each length word also
 word area is not being completed immediately.
 
-bug 6: word_area delay in printing - moved order in start_game around so word area would update before being printed.
+bug 6: word_area delay in printing - moved order in start_game around so word area would update before being
 
-
+bug 7 - adding for loops to areats with input to ensure they loop until they get a valid answer.
 figuring out how to connect the words inside the base of the display was lengthy!
 
 if you input the and invalid y/n at rules a 2nd time it 

@@ -164,24 +164,27 @@ def get_clue(available, guessed, tries, word, word_area):
         removes from available letters and prints hail mary
         tries + 1
     '''
-    hail_mary = input(' !!! WARNING !!! \n '
-                      'You are gangerously close to death. \n '
-                      'You can sacrifice the next part of yourself to reveal'
-                      ' one letter \n Do you want a hail mary? Y/N ').upper()
-    print(hail_mary)
-    if hail_mary == 'Y':
-        tries = tries - 1
-        random_clue = random.choice(available)
-        while random_clue not in word or random_clue in guessed:
+    clue = False
+    print(' !!! WARNING !!! \n '
+          'You are gangerously close to death. \n '
+          'You can sacrifice the next part of yourself to reveal'
+          ' one letter \n')
+    while clue is False:
+        hail_mary = input(' Do you want a hail mary? Y/N ').upper()
+        if hail_mary == 'Y':
+            clue = True
+            tries = tries - 1
             random_clue = random.choice(available)
-        print(game_display(tries))
-        print(base(word, word_area))
-        print(f" \n Here is a letter in the word '{random_clue}'\n")
-    elif hail_mary == 'N':
-        print(" \n Ok, it's your life. \n")
-    else:
-        print('\n  Invalid answer, you must type either Y or N \n')
-        input('Do you want a hail Mary? Y/N ')
+            while random_clue not in word or random_clue in guessed:
+                random_clue = random.choice(available)
+            print(game_display(tries))
+            print(base(word, word_area))
+            print(f" \n Here is a letter in the word '{random_clue}'\n")
+        elif hail_mary == 'N':
+            clue = True
+            print(" \n Ok, it's your life to risk. \n")
+        else:
+            print('\n  Invalid answer, you must type either Y or N \n')
 
 
 def end_message():
