@@ -146,6 +146,7 @@ def start_game(word):
                           'hanging. \n'
                           ' The only part of your body with any life left '
                           'is your curly locks blowing in the wind.\n')
+                    print(f" The word that killed you was '{word}'. \n")
                     end_message(alive)
         elif guess.isalpha() and guess not in available:
             if len(guess) != 1:
