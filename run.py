@@ -89,7 +89,7 @@ def start_game(word):
     word_spaced = ' '.join(word)
     word_area = '_ ' * len(word)
     print(game_display(tries))
-    base(word, word_area)
+    print(base(word, word_area))
     alphabet = sorted(set(string.ascii_uppercase))
     available = ' '.join(alphabet)
     print(f" Available letters:\n\n {available}\n")
@@ -108,17 +108,15 @@ def start_game(word):
                 available = available[0: ind:] + available[ind + 1::]
             guessed.add(guess)
             if guess in word:
-                print(word_spaced)
                 word_area_list = list(word_area)
                 index_of_correct_letter = [i for i,
                                            letter in enumerate(word_spaced)
                                            if letter == guess]
                 for i in index_of_correct_letter:
-                    print(game_display(tries))
-                    base(word, word_area)
                     word_area_list[i] = guess
                     word_area = "".join(word_area_list)
-                    print(word_area)
+                    print(game_display(tries))
+                    print(base(word, word_area))
                 print(f"\n Phew! You guessed correctly with the letter "
                       f"{guess}\n")
                 if '_' not in word_area:
@@ -126,7 +124,7 @@ def start_game(word):
             elif guess not in word:
                 tries = tries - 1
                 print(game_display(tries))
-                base(word, word_area)
+                print(base(word, word_area))
                 if tries != 0:
                     print(f"\n Oh no! You have lost this guess with the letter"
                           f" {guess}\n")
@@ -174,7 +172,7 @@ def get_clue(available, guessed, tries, word, word_area):
         while random_clue not in word or random_clue in guessed:
             random_clue = random.choice(available)
         print(game_display(tries))
-        base(word, word_area)
+        print(base(word, word_area))
         print(f" \n Here is a letter in the word '{random_clue}'\n")
     elif hail_mary == 'N':
         print(" \n Ok, it's your life. \n")
@@ -537,7 +535,7 @@ def base(word, word_area):
                        |  Word: {word_area} | /
                        |_____________________________________|/
                        \n""")
-    print(box)
+    return box
 
 
 def main():
