@@ -43,9 +43,9 @@ def welcome():
             rules = (
                     '\n  Hangman is a game where you try to guess a given word'
                     ' one letter at a time. \n  If your answer is wrong you '
-                    'will be hanged piece by piece. \n\n  You have 7 body'
-                    ' parts so you can only have 6 wrong answers or you will '
-                    'die.\n  You can guess as many correct letters as needed '
+                    'will be hanged piece by piece in 7 parts \n  meaning you '
+                    ' can only have 6 wrong answers or you will die.\n\n'
+                    '  You can guess as many correct letters as needed '
                     'to be saved. \n\n  There are 3 different levels : \n  '
                     'Easy contains words that are 4-6 letters long \n  '
                     'Medium contains words that are 7-9 letters long \n  '
@@ -148,7 +148,10 @@ def start_game(word):
                           'is your curly locks blowing in the wind.\n')
                     end_message(alive)
         elif guess.isalpha() and guess not in available:
-            print(f"\n You have already used {guess} \n")
+            if len(guess) != 1:
+                print("\n You can only guess one letter at a time \n")
+            else:
+                print(f"\n You have already used {guess} \n")
         else:
             print("\n  Invalid answer, you must choose a letter\n")
             print(f" The remaining letters are: {available}\n")
