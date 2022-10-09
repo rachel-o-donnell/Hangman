@@ -201,8 +201,8 @@ def end_message():
             play_again = True
             print('\n See you at the next hanging!')
         else:
-            print(f" Invalid answer, you must answer 'y' for yes or 'n' for "
-                  f"no /n/n {replay}")
+            print(" \n Invalid answer, you must answer 'y' for yes or 'n' for "
+                  "no \n")
 
 
 def game_display(tries):
