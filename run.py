@@ -177,7 +177,7 @@ def get_clue(available, guessed, tries, word, word_area):
         base(word, word_area)
         print(f" \n Here is a letter in the word '{random_clue}'\n")
     elif hail_mary == 'N':
-        print("/n  Ok, it's your life. ")
+        print(" \n Ok, it's your life. \n")
     else:
         print('\n  Invalid answer, you must type either Y or N \n')
         input('Do you want a hail Mary? Y/N ')
