@@ -63,19 +63,24 @@ def choose_level():
     """
     Asks player to choose a difficulty setting
     """
+    chosen = False
     chosen_level = ''
     print(" Choose your difficulty: \n")
-    level = input(' Enter (E)asy, (M)edium or (H)ard ').upper()
-    if level == 'E':
-        chosen_level = "Easy"
-    elif level == 'M':
-        chosen_level = "Medium"
-    elif level == 'H':
-        chosen_level = "Hard"
-    else:
-        print(" \n Invalid input, "
-              "you must enter e for Easy, m for Medium or h for Hard \n")
-        level = input(' Enter (E)asy, (M)edium or (H)ard ')
+    while chosen is False:
+        level = input(' Enter (E)asy, (M)edium or (H)ard ').upper()
+        if level == 'E':
+            chosen = True
+            chosen_level = "Easy"
+        elif level == 'M':
+            chosen_level = "Medium"
+            chosen = True
+        elif level == 'H':
+            chosen_level = "Hard"
+            chosen = True
+        else:
+            chosen = False
+            print(" \n Invalid input, "
+                  "you must enter e for Easy, m for Medium or h for Hard \n")
     return chosen_level
 
 
