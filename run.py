@@ -191,14 +191,18 @@ def end_message():
     """
     Gives player the option to play again or not
     """
-    play_again = input(' Take the deal and risk your life again? Y/N ').upper()
-    if play_again == 'Y':
-        start_game(get_word(choose_level()))
-    elif play_again == 'N':
-        print('\n See you at the next hanging!')
-    else:
-        print(" Invalid answer, you must answer 'y' for yes or 'n' for no /n")
-        print(play_again)
+    play_again = False
+    while play_again is False:
+        replay = input(' Take the deal and risk your life again? Y/N ').upper()
+        if replay == 'Y':
+            play_again = True
+            start_game(get_word(choose_level()))
+        elif replay == 'N':
+            play_again = True
+            print('\n See you at the next hanging!')
+        else:
+            print(f" Invalid answer, you must answer 'y' for yes or 'n' for "
+                  f"no /n/n {replay}")
 
 
 def game_display(tries):
