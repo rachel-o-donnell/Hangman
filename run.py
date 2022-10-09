@@ -56,7 +56,8 @@ def welcome():
             get_rules = True
             print('\n  Ok, crowd are getting impatient anyways \n')
         else:
-            print('\n  Invalid answer, you must type either Y or N \n')
+            print("\n  Invalid answer, you must type either 'y' for yes or"
+                  " 'n' for no \n")
 
 
 def choose_level():
@@ -69,8 +70,8 @@ def choose_level():
     while chosen is False:
         level = input(' Enter (E)asy, (M)edium or (H)ard ').upper()
         if level == 'E':
-            chosen = True
             chosen_level = "Easy"
+            chosen = True
         elif level == 'M':
             chosen_level = "Medium"
             chosen = True
@@ -80,7 +81,8 @@ def choose_level():
         else:
             chosen = False
             print(" \n Invalid input, "
-                  "you must enter e for Easy, m for Medium or h for Hard \n")
+                  "You must enter 'e' for Easy, 'm' for Medium"
+                  " or 'h' for Hard \n")
     return chosen_level
 
 
@@ -191,7 +193,8 @@ def get_clue(available, guessed, tries, word, word_area):
             clue = True
             print(" \n Ok, it's your life to risk. \n")
         else:
-            print('\n  Invalid answer, you must type either Y or N \n')
+            print("\n  Invalid answer, you must type 'y' for yes"
+                  " or 'n' for no \n")
 
 
 def end_message(alive):
@@ -214,7 +217,7 @@ def end_message(alive):
             play_again = True
             print('\n See you at the next hanging!')
         else:
-            print(" \n Invalid answer, you must answer 'y' for yes or 'n' "
+            print(" \n  Invalid answer, you must answer 'y' for yes or 'n' "
                   "for no \n")
 
 
