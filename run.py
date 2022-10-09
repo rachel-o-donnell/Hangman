@@ -33,27 +33,30 @@ def welcome():
     Prints opening message to the terminal and prints the rules of the game
     if the player chooses to see them
     """
+    get_rules = False
     print(' Welcome to your scheduled hanging. \n\n'
           ' If the fates allow, you can save yourself from certain death.\n')
-    answer = input(' Would you like to know the rules? Y/N ').upper()
-    if answer == 'Y':
-        rules = (
-                '\n  Hangman is a game where you try to guess a given word '
-                'one letter at a time. \n  If your answer is wrong you will be'
-                ' hanged piece by piece.\n\n  Your body will be hanged in 7 '
-                'parts, so you can only have 6 wrong answers or you will die. '
-                '\n  You can guess as many correct letters as needed to be '
-                'saved. \n\n  There are 3 different levels : \n  '
-                'Easy contains words that are 4-6 letters long \n  '
-                'Medium contains words that are 7-9 letters long \n  '
-                'Hard contains words that are 10-14 letters long \n  '
-            )
-        print(rules)
-    elif answer == 'N':
-        print('\n  Ok, crowd are getting impatient anyways \n')
-    else:
-        print('\n  Invalid answer, you must type either Y or N')
-        input(' Do you need to know the rules? Y/N ')
+    while get_rules is False:
+        answer = input(' Would you like to know the rules? Y/N ').upper()
+        if answer == 'Y':
+            get_rules = True
+            rules = (
+                    '\n  Hangman is a game where you try to guess a given word'
+                    ' one letter at a time. \n  If your answer is wrong you '
+                    'will be hanged piece by piece. \n\n  You have 7 body'
+                    ' parts so you can only have 6 wrong answers or you will '
+                    'die.\n  You can guess as many correct letters as needed '
+                    'to be saved. \n\n  There are 3 different levels : \n  '
+                    'Easy contains words that are 4-6 letters long \n  '
+                    'Medium contains words that are 7-9 letters long \n  '
+                    'Hard contains words that are 10-14 letters long \n  '
+                )
+            print(rules)
+        elif answer == 'N':
+            get_rules = True
+            print('\n  Ok, crowd are getting impatient anyways \n')
+        else:
+            print('\n  Invalid answer, you must type either Y or N \n')
 
 
 def choose_level():
