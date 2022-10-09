@@ -25,7 +25,6 @@ def get_word(level):
     if level == 'Easy':
         while len(word_in_play) < 4 or len(word_in_play) > 6:
             word_in_play = random.choice(words).upper()
-        print(word_in_play)
     return word_in_play
 
 
@@ -87,7 +86,6 @@ def start_game(word):
     guessed = set()
     tries = 7
     guessed_word = False
-    clue = False
     word_spaced = ' '.join(word)
     word_area = '_ ' * len(word)
     print(game_display(tries))
@@ -95,9 +93,11 @@ def start_game(word):
     alphabet = sorted(set(string.ascii_uppercase))
     available = ' '.join(alphabet)
     print(f" Available letters:\n\n {available}\n")
+    print(word)
     while tries > 0 and not guessed_word:
         if tries == 2:
             get_clue(word, guessed, tries, word, word_area)
+            tries = tries - 1
         if guessed:
             print(f" Remaining letters: {available}\n")
             print(' Guessed letters:', ' '.join(sorted(guessed)))
@@ -169,17 +169,15 @@ def get_clue(available, guessed, tries, word, word_area):
                       ' one letter \n Do you want a hail mary? Y/N ').upper()
     print(hail_mary)
     if hail_mary == 'Y':
-        clue = True
         tries = tries - 1
         random_clue = random.choice(available)
-        while random_clue not in word and random_clue in guessed:
+        while random_clue not in word or random_clue in guessed:
             random_clue = random.choice(available)
-        print(f" Here is a letter in the word '{random_clue}'\n")
         print(game_display(tries))
         base(word, word_area)
-        return tries
+        print(f" \n Here is a letter in the word '{random_clue}'\n")
     elif hail_mary == 'N':
-        print('No')
+        print("/n  Ok, it's your life. ")
     else:
         print('\n  Invalid answer, you must type either Y or N \n')
         input('Do you want a hail Mary? Y/N ')
