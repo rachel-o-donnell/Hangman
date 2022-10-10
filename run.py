@@ -10,7 +10,7 @@ def get_word(level):
     """
     word_in_play = random.choice(words).upper()
     if level != 'Easy':
-        print(f"You have chosen a {level} level")
+        print(f" You have chosen a {level} level")
         if level == 'Medium':
             while len(word_in_play) < 7 or len(word_in_play) > 9:
                 word_in_play = random.choice(words).upper()
