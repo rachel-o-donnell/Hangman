@@ -190,6 +190,7 @@ Invalid input testing:
 
  - Pep 8 no longer running.. 
 ![This is an image](/assets/images/testing.png)
+Aware that the words.py file is long.
  
 
 ## **Deployment**
