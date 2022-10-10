@@ -113,7 +113,7 @@ def start_game(word):
     print(f" Available letters:\n\n {available}\n")
     while tries > 0 and not guessed_word:
         if tries == 2:
-            get_clue(word, guessed, tries, word, word_area)
+            get_clue(guessed, tries, word, word_area)
             tries = tries - 1
         if guessed:
             print(f" Remaining letters: {available}\n")
@@ -174,7 +174,7 @@ def start_game(word):
         end_message(alive)
 
 
-def get_clue(available, guessed, tries, word, word_area):
+def get_clue(guessed, tries, word, word_area):
     '''
     Offers a clue
     already and prints to the terminal if offer is taken.
@@ -191,9 +191,9 @@ def get_clue(available, guessed, tries, word, word_area):
         if hail_mary == 'Y':
             clue = True
             tries = tries - 1
-            random_clue = random.choice(available)
+            random_clue = random.choice(word)
             while random_clue not in word or random_clue in guessed:
-                random_clue = random.choice(available)
+                random_clue = random.choice(word)
             print(game_display(tries))
             print(base(word, word_area))
             print(f" \n Here is a letter in the word '{random_clue}'\n")
