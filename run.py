@@ -132,8 +132,8 @@ def start_game(word):
                 for i in index_of_correct_letter:
                     word_area_list[i] = guess
                     word_area = "".join(word_area_list)
-                    print(game_display(tries))
-                    print(base(word, word_area))
+                print(game_display(tries))
+                print(base(word, word_area))
                 print(f"\n Phew! You guessed correctly with the letter "
                       f"{guess}\n")
                 if '_' not in word_area:
