@@ -101,7 +101,7 @@ def start_game(word):
     alphabet = sorted(set(string.ascii_uppercase))
     available = ' '.join(alphabet)
     print(f" Available letters:\n\n {available}\n")
-    print(word)
+    print(f" Coded to cheat for testing {word}")
     while tries > 0 and not guessed_word:
         if tries == 2:
             get_clue(word, guessed, tries, word, word_area)
@@ -520,7 +520,6 @@ def base(word, word_area):
                        |         word: {word_area}      | /
                        |_____________________________________|/
                        \n""")
-        print(box)
     elif len(word) == 9:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
