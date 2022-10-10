@@ -5,6 +5,8 @@ Hangman is a Python terminal game which runs in the Code Institute terminal on H
 
 Link to live site: [here](https://hangmanrachel.herokuapp.com/)
 
+![This is an image](/assets/images/
+
 ## **How to Play**
 
 This game is based on the classic pen and paper game. Lots of info can be found on [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
@@ -37,7 +39,7 @@ In this version:
 * As a user I can play again immediately if I win or die.
 * As a user I can follow a storyline as I play the game.
 
-## Wireframes:
+## Wireframes: ?????
 
 ## Flowchart:
 
@@ -47,11 +49,26 @@ My initial game flowchart is found below. I have added some features and left ot
 ##  **Features**
 
 Existing Features
- - Interactive display
+ - Interactive display - Display changes with correct or incorrect answer
+ ![This is an image](/assets/images/stage_1.png)
+ ![This is an image](/assets/images/stage_2.png)
+ ![This is an image](/assets/images/stage_3.png)
+ ![This is an image](/assets/images/stage_4.png)
+ ![This is an image](/assets/images/stage_5.png)
+ ![This is an image](/assets/images/stage_6.png)
+ ![This is an image](/assets/images/stage_7.png)
+
  - Option to read rules
- - 3 different levels to choose from
+ ![This is an image](/assets/images/rules_y.png)
+ - 3 different levels to choose from 
+ ![This is an image](/assets/images/easy.png)
+ ![This is an image](/assets/images/medium.png) 
+ ![This is an image](/assets/images/hard.png)
+
  - Option to get a hint 
- - Option to play again
+ ![This is an image](/assets/images/hail_mary_yes.png)
+ - Option to play again 
+ ![This is an image](/assets/images/play_again_yes.png)
 
 Future Features
 
