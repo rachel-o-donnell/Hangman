@@ -15,11 +15,9 @@ def get_word(level):
         if level == 'Medium':
             while len(word_in_play) < 7 or len(word_in_play) > 9:
                 word_in_play = random.choice(words).upper()
-            print(word_in_play)
         else:
             while len(word_in_play) < 10 or len(word_in_play) > 14:
                 word_in_play = random.choice(words).upper()
-            print(word_in_play)
     else:
         print(f" You have chosen an {level} level")
     if level == 'Easy':
