@@ -49,8 +49,10 @@ My initial game flowchart is found below. I have added some features and left ot
 ##  **Features**
 
 Existing Features
- - Interactive display - Display changes with correct or incorrect answer
- ![This is an image](/assets/images/stage_1.png)
+
+Interactive display - Display changes with correct or incorrect answer
+
+  ![This is an image](/assets/images/stage_1.png)
  ![This is an image](/assets/images/stage_2.png)
  ![This is an image](/assets/images/stage_3.png)
  ![This is an image](/assets/images/stage_4.png)
@@ -58,17 +60,23 @@ Existing Features
  ![This is an image](/assets/images/stage_6.png)
  ![This is an image](/assets/images/stage_7.png)
 
- - Option to read rules
- ![This is an image](/assets/images/rules_y.png)
- - 3 different levels to choose from 
- ![This is an image](/assets/images/easy.png)
+ Option to read rules
+
+  ![This is an image](/assets/images/rules_y.png)
+
+ 3 different levels to choose from 
+
+  ![This is an image](/assets/images/easy.png)
  ![This is an image](/assets/images/medium.png) 
  ![This is an image](/assets/images/hard.png)
 
- - Option to get a hint 
- ![This is an image](/assets/images/hail_mary_yes.png)
- - Option to play again 
- ![This is an image](/assets/images/play_again_yes.png)
+ Option to get a hint 
+
+  ![This is an image](/assets/images/hail_mary_yes.png)
+
+ Option to play again 
+
+  ![This is an image](/assets/images/play_again_yes.png)
 
 Future Features
 

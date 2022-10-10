@@ -1,3 +1,6 @@
+"""
+Words file
+"""
 words = ["aback",
          "abaft",
          "abandoned",
