@@ -211,6 +211,7 @@ def end_message(alive):
     that is valid depending on the circumstance of end game.
     """
     play_again = False
+    replay = ''
     while play_again is False:
         if alive is True:
             replay = input(' Take the deal and risk your life again?'
@@ -493,6 +494,7 @@ def base(word, word_area):
     the length of the word
     '''
     if len(word) == 4:
+        box = ''
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
