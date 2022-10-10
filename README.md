@@ -29,17 +29,21 @@ In this version:
   reveal one letter in the word, but it means you can only answer correctly after that clue as the next wrong answer will kill you. 
 * You have the option to play again one the game is over.
   
+**Target Audience:**
+
+Players of all ages are welcome as there are different difficulties to choose from. 
+Players who enjoy a story while they play a game. 
+People studying English
 
 **User Stories:**
 
+* As a user I can decide whether to read the rules or not.
 * As a user I can choose different difficulties so I can challenge myself further when I am ready.
 * As a user I can see if I have answered correctly/ incorrectly by the visual display as well as the text confirmation.
 * As a user I can get a hint if I am near death.
-* As a user I can decide whether to read the rules or not.
-* As a user I can play again immediately if I win or die.
 * As a user I can follow a storyline as I play the game.
+* As a user I can play again immediately if I win or die.
 
-## Wireframes: ?????
 
 ## Flowchart:
 
@@ -50,7 +54,22 @@ My initial game flowchart is found below. I have added some features and left ot
 
 Existing Features
 
-Interactive display - Display changes with correct or incorrect answer
+ Intro
+
+  ![This is an image](/assets/images)
+
+ Option to read rules
+
+  ![This is an image](/assets/images/rules_y.png)
+  ![This is an image](/assets/images/rules_no.png)
+
+ 3 different levels to choose from 
+
+  ![This is an image](/assets/images/easy.png)
+ ![This is an image](/assets/images/medium.png) 
+ ![This is an image](/assets/images/hard.png)
+
+ Interactive display - Display changes with correct or incorrect answer
 
   ![This is an image](/assets/images/stage_1.png)
  ![This is an image](/assets/images/stage_2.png)
@@ -60,19 +79,16 @@ Interactive display - Display changes with correct or incorrect answer
  ![This is an image](/assets/images/stage_6.png)
  ![This is an image](/assets/images/stage_7.png)
 
- Option to read rules
-
-  ![This is an image](/assets/images/rules_y.png)
-
- 3 different levels to choose from 
-
-  ![This is an image](/assets/images/easy.png)
- ![This is an image](/assets/images/medium.png) 
- ![This is an image](/assets/images/hard.png)
-
  Option to get a hint 
 
-  ![This is an image](/assets/images/hail_mary_yes.png)
+  ![This is an image](/assets/images/hail-mary_no.png)
+
+ Game win 
+
+  ![This is an image](/assets/images/game_over_win.png)
+
+ Loose Game
+  ![This is an image](/assets/images/game_over_loose.png)
 
  Option to play again 
 
@@ -89,7 +105,7 @@ Future Features
 * Separate out words that have multiple instances of one letter to add into different categories (eg move from hard to medium)
 
 ## TECHNOLOGIES USED: 
-## **Data Model**
+
 Python
 
 ## **Testing**
@@ -135,6 +151,14 @@ Python
 | N |Inputting n or N will end the game displaying a message "See you at the next hanging" | Inputted n or N into this field |"See you at the next hanging" is printed to the screen and the game ends |
 | Invalid | Inputting a character that is not y, Y, n or N triggers an invalid answer response and user is prompted to input a valid answer | Input various invalid answers in multiple games | An invalid answer response and user is prompted to input a valid answer |
 
+Invalid input testing:
+
+  ![This is an image](/assets/images/invalid_rules.png)
+ ![This is an image](/assets/images/invalid_difficulty.png)
+ ![This is an image](/assets/images/invalid_input_letters.png)
+ ![This is an image](/assets/images/hail_mary_invalid.png)
+ ![This is an image](/assets/images/play_again_invalid.png)
+
 
 ## Bugs
 
@@ -164,8 +188,9 @@ Python
 
 # Validator testing
 
- - Pep 8 website not working. 
-
+ - Pep 8 no longer running.. 
+![This is an image](/assets/images/testing.png)
+ 
 
 ## **Deployment**
 
@@ -238,12 +263,4 @@ There were two main tutorials I followed along with a repo I used for comparison
 * Lucid - Flowcharts
 * Github Projects
 
-* Devtools
-* Flex froggy
-* Grid Garden
-* Unicorn revealer.
 ---
-
-***
-
-***
