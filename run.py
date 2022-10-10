@@ -161,7 +161,6 @@ def start_game(word):
                 print(f"\n You have already used {guess} \n")
         else:
             print("\n  Invalid answer, you must choose a letter\n")
-            print(f" The remaining letters are: {available}\n")
     if guessed_word:
         alive = True
         print('\n You survived! The crowd has been mesmerised by your curly'
