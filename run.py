@@ -5,9 +5,8 @@ from words import words
 
 def get_word(level):
     """
-    Eliminates words that are less than 6 characters long,
-    have spaces or have hyphens
-    Randomly chooses a word for our game.
+    Randomly chooses a valid word for the game within the given
+    pardigms and returns the word.
     """
     word_in_play = random.choice(words).upper()
     if level != 'Easy':
@@ -28,8 +27,8 @@ def get_word(level):
 
 def welcome():
     """
-    Prints opening message to the terminal and prints the rules of the game
-    if the player chooses to see them
+    Prints opening message to the terminal, and prints the rules of the game
+    if the player chooses to see them, continues the game if not.
     """
     get_rules = False
     print(' Welcome to your scheduled hanging. \n\n'
@@ -60,7 +59,7 @@ def welcome():
 
 def choose_level():
     """
-    Asks player to choose a difficulty setting
+    Asks player to choose a difficulty setting and returns the value inputted
     """
     chosen = False
     chosen_level = ''
@@ -86,10 +85,19 @@ def choose_level():
 
 def start_game(word):
     """
-    asks player to input a letter,
-    checks that the answer is a valid guess buy ensuring it is a letter,
-    is in the available letters list,
-    and whether it is a correct or incorrect guess
+    Shows available list of letters
+    Asks player to input a letter, checks that the answer is a valid guess by
+    ensuring it is a letter, that it has not been used already
+    and is not two or more letters inputted at the same time.
+
+    Checks if letter is correct or incorrect, adds to guessed letters, removes
+    from available letters.
+    If correct calls to show letter in the word area and display correct
+    message
+    If incorrect decreases tries, displays incorrect message and calls for
+    body part to be added to the display.
+    Displays a call to get a clue when player gets to 2 tries
+    Calls to display end game message.
     """
     guessed = set()
     tries = 7
@@ -164,16 +172,14 @@ def start_game(word):
               ' It pays well but will surely draw more attention, and another'
               ' date with the gallows.\n\n')
         end_message(alive)
-    return word_area
 
 
 def get_clue(available, guessed, tries, word, word_area):
     '''
-    gives clue
-    itterate through wrod area until if finds a '_' - checks this
-     against word and reveals the letter.
-        removes from available letters and prints hail mary
-        tries + 1
+    Offers a clue
+    already and prints to the terminal if offer is taken.
+    If used tries decrease by 1 thereby adding body part to display,
+    If not taken choice is confirmed and game plays on.
     '''
     clue = False
     print(' !!! WARNING !!! \n '
@@ -201,9 +207,9 @@ def get_clue(available, guessed, tries, word, word_area):
 
 def end_message(alive):
     """
-    Gives player the option to play again or not
+    Gives player the option to play again or not displaying a message
+    that is valid depending on the circumstance of end game.
     """
-
     play_again = False
     while play_again is False:
         if alive is True:
@@ -225,7 +231,7 @@ def end_message(alive):
 
 def game_display(tries):
     """
-    displays the visuals of the game to the player
+    Displays the stages of the hanged man visuals of the game to the player
     """
     hangman_stage = ["""
                          ________________________
@@ -567,7 +573,7 @@ def base(word, word_area):
 
 def main():
     """
-    All functions
+    All main functions
     """
     welcome()
     start_game(get_word(choose_level()))
