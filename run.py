@@ -79,7 +79,6 @@ def choose_level():
             chosen_level = "Hard"
             chosen = True
         else:
-            chosen = False
             print(" \n Invalid input, "
                   "You must enter 'e' for Easy, 'm' for Medium"
                   " or 'h' for Hard \n")
