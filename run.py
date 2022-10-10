@@ -87,19 +87,10 @@ def choose_level():
 
 def start_game(word):
     """
-    Shows available list of letters
-    Asks player to input a letter, checks that the answer is a valid guess by
-    ensuring it is a letter, that it has not been used already
-    and is not two or more letters inputted at the same time.
+    Start the main game loop asking user to input until a 
+    win/loose condition is met. 
 
-    Checks if letter is correct or incorrect, adds to guessed letters, removes
-    from available letters.
-    If correct calls to show letter in the word area and display correct
-    message
-    If incorrect decreases tries, displays incorrect message and calls for
-    body part to be added to the display.
-    Displays a call to get a clue when player gets to 2 tries
-    Calls to display end game message.
+    Each user guess is validated to ensure correct formatting.
     """
     guessed = set()
     tries = 7
