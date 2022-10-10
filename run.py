@@ -224,6 +224,7 @@ def end_message(alive):
         elif replay == 'N':
             play_again = True
             print('\n See you at the next hanging!')
+            exit()
         else:
             print(" \n  Invalid answer, you must answer 'y' for yes or 'n' "
                   "for no \n")
