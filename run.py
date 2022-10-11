@@ -109,7 +109,7 @@ def start_game(word):
         if guessed:
             print(f" Remaining letters: {available}\n")
             print(' Guessed letters:', ' '.join(sorted(guessed)))
-        guess = input("\n Choose a letter: ").upper()
+        guess = input(" Choose a letter: ").upper()
         if guess.isalpha() and guess in available:
             ind = available.index(guess)
             if len(available) > ind:
@@ -457,77 +457,77 @@ def base(word, word_area):
                        |                                     |  |
                        |             Word: {word_area}          | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 5:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |           Word: {word_area}          | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 6:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |           word: {word_area}        | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 7:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |         Word: {word_area}        | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 8:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |         word: {word_area}      | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 9:
         box = (f"""                       |      The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |        Word: {word_area}     | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 10:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |       Word: {word_area}    | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 11:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |      Word: {word_area}   | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 12:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |     Word: {word_area}  | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 13:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |    Word: {word_area} | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     elif len(word) == 14:
         box = (f"""                       |     The word is"""
                f""" {len(word)} letters long     |  |
                        |                                     |  |
                        |  Word: {word_area} | /
                        |_____________________________________|/
-                       \n""")
+                       """)
     return box
 
 
