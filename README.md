@@ -4,8 +4,9 @@
 Hangman is a Python terminal game which runs in the Code Institute terminal on Heroku. 
 
 Link to live site: [here](https://hangmanrachel.herokuapp.com/)
-
-![This is an image](/assets/images/
+ 
+  ![This is an image](/assets/images/closeup.png)
+ 
 
 ## **How to Play**
 
@@ -73,7 +74,9 @@ Existing Features
  ![This is an image](/assets/images/medium.png) 
  ![This is an image](/assets/images/hard.png)
 
- Interactive display - Display changes with correct or incorrect answer
+ Interactive and unique display - Display changes with correct or incorrect answer
+ I created the display through trial and error with basic ascii inputs, wanting it to look
+ different to ones that I had seen.
 
  Stages of man hangning:
 
@@ -84,6 +87,7 @@ Existing Features
  ![This is an image](/assets/images/stage_5.png)
  ![This is an image](/assets/images/stage_6.png)
  ![This is an image](/assets/images/stage_7.png)
+ ![This is an image](/assets/images/stage_8.png)
 
  Correct letter 
 
@@ -108,16 +112,18 @@ Existing Features
 
  Game win - follows the story
 
-  ![This is an image](/assets/images/game_over_win.png)
+  ![This is an image](/assets/images/win.png)
 
  Loose Game - follows the story
 
-  ![This is an image](/assets/images/game_over_loose.png)
+  ![This is an image](/assets/images/loose.png)
 
- Option to play again 
- Yes
+ Option to play again: Yes
+
   ![This is an image](/assets/images/play_again_yes.png)
- No
+
+ Option to play again: No
+
  ![This is an image](/assets/images/play_again_no.png)
 
 Future Features
