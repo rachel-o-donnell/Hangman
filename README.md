@@ -50,7 +50,8 @@ People studying English
 
 My initial game flowchart is found below. I have added some features and left others for future features as I developed the game.
 
-[Flowchart](https://lucid.app/publicSegments/view/3f857a61-a4ae-4940-b915-0afb5bbec384)
+ ![This is an image](/assets/images/flowchart.png)
+ 
 ##  **Features**
 
 Existing Features
