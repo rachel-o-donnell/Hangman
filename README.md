@@ -56,20 +56,26 @@ Existing Features
 
  Intro
 
-  ![This is an image](/assets/images)
+  ![This is an image](/assets/images/intro.png)
 
- Option to read rules
+ Option to read rules: YES 
 
   ![This is an image](/assets/images/rules_y.png)
+
+ Option to read rules: NO 
+ 
   ![This is an image](/assets/images/rules_no.png)
 
- 3 different levels to choose from 
+ 3 different levels to choose from:
+ EASY, MEDIUM AND HARD
 
   ![This is an image](/assets/images/easy.png)
  ![This is an image](/assets/images/medium.png) 
  ![This is an image](/assets/images/hard.png)
 
  Interactive display - Display changes with correct or incorrect answer
+
+ Stages of man hangning:
 
   ![This is an image](/assets/images/stage_1.png)
  ![This is an image](/assets/images/stage_2.png)
@@ -79,20 +85,40 @@ Existing Features
  ![This is an image](/assets/images/stage_6.png)
  ![This is an image](/assets/images/stage_7.png)
 
- Option to get a hint 
+ Correct letter 
 
-  ![This is an image](/assets/images/hail-mary_no.png)
+ ![This is an image](/assets/images/correct_letter.png)
 
- Game win 
+ Incorrect letter
+
+ ![This is an image](/assets/images/wrong_letter.png)
+
+ Option to get a hint :
+  Hint shows
+
+  ![This is an image](/assets/images/hail_mary_msg.png)
+
+  Accept hint
+
+ ![This is an image](/assets/images/hail_mary_yes.png)
+
+  Deny hint
+
+ ![This is an image](/assets/images/hail_mary_no.png)
+
+ Game win - follows the story
 
   ![This is an image](/assets/images/game_over_win.png)
 
- Loose Game
+ Loose Game - follows the story
+
   ![This is an image](/assets/images/game_over_loose.png)
 
  Option to play again 
-
+ Yes
   ![This is an image](/assets/images/play_again_yes.png)
+ No
+ ![This is an image](/assets/images/play_again_no.png)
 
 Future Features
 
@@ -184,13 +210,13 @@ Invalid input testing:
 
 **Remaining bugs**
 
- - None that I am aware of.
+ - No bugs remaining that I am aware of.
 
 # Validator testing
 
- - Pep 8 no longer running.. 
-![This is an image](/assets/images/testing.png)
-Aware that the words.py file is long.
+ - Pep 8 no longer running.
+ Aware that the words.py file is long.
+![This is an image](/assets/images/testing.png) 
  
 
 ## **Deployment**

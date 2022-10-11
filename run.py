@@ -87,8 +87,8 @@ def choose_level():
 
 def start_game(word):
     """
-    Start the main game loop asking user to input until a 
-    win/loose condition is met. 
+    Start the main game loop asking user to input until a
+    win/loose condition is met.
 
     Each user guess is validated to ensure correct formatting.
     """
