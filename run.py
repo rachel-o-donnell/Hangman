@@ -141,10 +141,9 @@ def start_game(word):
                 if tries == 0:
                     alive = False
                     print(' Whelp! The crowd is satiated from a suspensful '
-                          'hanging. \n'
-                          ' The only part of your body with any life left '
-                          'is your curly locks blowing in the wind.\n')
-                    print(f" The word that killed you was '{word}'. \n")
+                          'hanging. The only part of your body with any life '
+                          'left is your curly locks \n  blowing in the wind.')
+                    print(f"\n The word that killed you was '{word}'. \n")
                     end_message(alive)
         elif guess.isalpha() and guess not in available:
             if len(guess) != 1:
@@ -156,12 +155,12 @@ def start_game(word):
     if guessed_word:
         alive = True
         print('\n You survived! The crowd has been mesmerised by your curly'
-              ' bufont and are cheering for more.\n\n You have been '
-              'approached to star on the front cover of "Hangings Monthly" and'
-              ' offered \n a sponsorship deal with "Cauldron Curls '
-              '- curls so defined it must be witchcraft". \n\n'
+              ' bufont and are \n  cheering for more.\n You have been '
+              'approached to star on the front cover of "Hangings Monthly" \n'
+              ' and offered a sponsorship deal with "Cauldron Curls \n '
+              ' - curls so defined it must be witchcraft". \n'
               ' It pays well but will surely draw more attention, and another'
-              ' date with the gallows.\n\n')
+              ' date \n   with the gallows.')
         end_message(alive)
 
 
