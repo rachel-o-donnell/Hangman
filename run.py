@@ -141,7 +141,7 @@ def start_game(word):
                 if tries == 0:
                     alive = False
                     print(' Whelp! The crowd is satiated from a suspensful '
-                          'hanging. The only part \n  of your body with any '
+                          'hanging. The only part \n of your body with any '
                           'life left is your curly locks blowing in the wind.')
                     print(f"\n The word that killed you was '{word}'. \n")
                     end_message(alive)
@@ -160,7 +160,7 @@ def start_game(word):
               ' and offered a sponsorship deal with "Cauldron Curls - curls'
               ' so defined \n it must be witchcraft". \n'
               ' It pays well but will surely draw more attention, and another'
-              ' date \n  with the gallows. \n')
+              ' date \n with the gallows. \n')
         end_message(alive)
 
 
@@ -227,7 +227,6 @@ def game_display(tries):
     """
     hangman_stage = ["""
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -254,7 +253,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -281,7 +279,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -308,7 +305,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -335,7 +331,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -362,7 +357,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -389,7 +383,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /                    @@@~
                         |/                   @@@@@@@@___
@@ -416,7 +409,6 @@ def game_display(tries):
 
                      """
                          ________________________
-                        |   /                   |
                         |  /                    |
                         | /
                         |/
