@@ -56,17 +56,25 @@ My initial game flowchart is found below. I have added some features and left ot
 
 Existing Features
 
- Intro
+ Intro. 
+
+ The user is welcomed to the game.
 
   ![This is an image](/assets/images/intro.png)
 
- Option to read rules: YES 
+ Option to read rules: 
+
+ User is offered whether they want to familiarize themselves with the rules of the game or get straight into it.
+ 
+ YES answer 
 
   ![This is an image](/assets/images/rules_y.png)
 
- Option to read rules: NO 
+  NO answer
  
   ![This is an image](/assets/images/rules_no.png)
+
+User has options of how difficult the game is depending on their ability. 
 
  3 different levels to choose from:
  EASY, MEDIUM AND HARD
@@ -75,9 +83,9 @@ Existing Features
  ![This is an image](/assets/images/medium.png) 
  ![This is an image](/assets/images/hard.png)
 
- Interactive and unique display - Display changes with correct or incorrect answer
+ Interactive and unique display - Display changes with correct or incorrect answer.
  I created the display through trial and error with basic ascii inputs, wanting it to look
- different to ones that I had seen.
+ different to ones that I had seen, and seem as ridiculous as possible with quite a heavy subject.
 
  Stages of man hangning:
 
@@ -90,16 +98,16 @@ Existing Features
  ![This is an image](/assets/images/stage_7.png)
  ![This is an image](/assets/images/stage_8.png)
 
- Correct letter 
+ Correct letter display. User is told visually and verbally that they have chosen a correct letter.
 
  ![This is an image](/assets/images/correct_letter.png)
 
- Incorrect letter
+ Incorrect letter display. User is told visually and verbally that they have chosen a wrong answer.
 
  ![This is an image](/assets/images/wrong_letter.png)
 
- Option to get a hint :
-  Hint shows
+ Option to get a hint : User can opt to get a hint by sacricing a part of themselves.
+  Hint options shows
 
   ![This is an image](/assets/images/hail_mary_msg.png)
 
@@ -110,6 +118,10 @@ Existing Features
   Deny hint
 
  ![This is an image](/assets/images/hail_mary_no.png)
+
+
+ Storyline:
+  I choose to add a little extra in a storyline and connect it up depending on what the outcome is. I think this will make progressing with future features even more entertaining. 
 
  Game win - follows the story
 
