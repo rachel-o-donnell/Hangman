@@ -165,12 +165,12 @@ def start_game(word):
 
 
 def get_clue(guessed, tries, word, word_area):
-    '''
+    """
     Offers a clue
     already and prints to the terminal if offer is taken.
     If used tries decrease by 1 thereby adding body part to display,
     If not taken choice is confirmed and game plays on.
-    '''
+    """
     clue = False
     print(' !!! WARNING !!! \n '
           'You are gangerously close to death. \n '
@@ -436,11 +436,11 @@ def game_display(tries):
 
 
 def base(word, word_area):
-    '''
+    """
     Prints the base box of the game display with the details of the word
     and word area without disrupting the size of the box container no matter
     the length of the word
-    '''
+    """
     if len(word) == 4:
         box = ''
         box = (f"""                       |      The word is"""
