@@ -121,7 +121,7 @@ User has options of how difficult the game is depending on their ability.
 
 
  Storyline:
-  I choose to add a little extra in a storyline and connect it up depending on what the outcome is. I think this will make progressing with future features even more entertaining. 
+ I choose to add a little extra in a storyline and connect it up depending on what the outcome is. I think this will make progressing with future features even more entertaining. 
 
  Game win - follows the story
 
